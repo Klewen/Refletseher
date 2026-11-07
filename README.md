@@ -29,6 +29,7 @@ per-zone colours, native keyboard effects, profiles and automation.
 - [Troubleshooting](#troubleshooting)
 - [Performance](#performance)
 - [Building from source](#building-from-source)
+- [License](#license)
 - [Disclaimer](#disclaimer)
 
 ## Supported hardware
@@ -183,6 +184,12 @@ Technical documentation (Turkish): [architecture](docs/ARCHITECTURE.md), [HID pr
 [colour engine](docs/COLOR_ENGINE.md), [safety](docs/SAFETY.md), [testing](docs/TESTING.md),
 [hardware validation](docs/HARDWARE_VALIDATION.md), [benchmarks](docs/BENCHMARKS.md), [user guide](docs/USER_GUIDE.md) ·
 [README (Türkçe)](docs/README.tr.md)
+
+## License
+
+ScreenSync RGB is released under the [MIT License](LICENSE) © 2026 altugcakir.
+The Windows release bundles third-party components under their own licenses (Qt/PySide6 under LGPLv3, OpenCV under Apache-2.0, and others).
+See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
 ## Disclaimer
 

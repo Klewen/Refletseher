@@ -3,6 +3,9 @@ name = "screensync-rgb"
 version = "1.0.0"
 description = "ScreenSync RGB - MSI MysticLight MS-1565 keyboard ambient lighting studio for Windows"
 requires-python = ">=3.12,<3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "altugcakir" }]
 dependencies = [
     "dxcam[winrt]>=0.3.0",
     "hidapi>=0.15.0",

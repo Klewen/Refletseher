@@ -14,6 +14,8 @@ if ($LASTEXITCODE -ne 0) { throw "pyinstaller failed" }
 
 $exe = "dist\ScreenSyncRGB\ScreenSyncRGB.exe"
 if (-not (Test-Path $exe)) { throw "executable missing" }
+# licence texts travel with the binaries
+Copy-Item LICENSE, THIRD-PARTY-NOTICES.md -Destination "dist\ScreenSyncRGB\" -Force
 $zip = "dist\ScreenSyncRGB-1.0.0-win64.zip"
 if (Test-Path $zip) { Remove-Item $zip }
 Compress-Archive -Path "dist\ScreenSyncRGB\*" -DestinationPath $zip
