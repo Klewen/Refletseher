@@ -1,0 +1,272 @@
+[
+  {
+    "scene": "1/5  Karanlik sahne + kucuk kirmizi isik",
+    "algo": "cinematic",
+    "expect": "Beklenen: klavye LOS kirmizi (tamamen sonuk degil, parlak da degil)",
+    "final": {
+      "t": 12.0,
+      "intended": [
+        [
+          72,
+          1,
+          2
+        ],
+        [
+          122,
+          0,
+          1
+        ],
+        [
+          101,
+          0,
+          1
+        ],
+        [
+          56,
+          3,
+          3
+        ]
+      ],
+      "label": "cinematic",
+      "confirmed": [
+        [
+          72,
+          1,
+          2
+        ],
+        [
+          122,
+          0,
+          1
+        ],
+        [
+          101,
+          0,
+          1
+        ],
+        [
+          56,
+          3,
+          3
+        ]
+      ]
+    },
+    "device_errors": 0
+  },
+  {
+    "scene": "2/5  Tamamen siyah sahne",
+    "algo": "cinematic",
+    "expect": "Beklenen: klavye karanlik / sonuk",
+    "final": {
+      "t": 20.0,
+      "intended": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "label": "cinematic",
+      "confirmed": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "device_errors": 0
+  },
+  {
+    "scene": "3/5  Film sahnesi: kirmizi cicek, acik mavi gokyuzu, krem duvar, bordo",
+    "algo": "palette",
+    "expect": "Beklenen: 4 bolgede bu renkler, bolge degistirmeden",
+    "final": {
+      "t": 32.0,
+      "intended": [
+        [
+          216,
+          0,
+          32
+        ],
+        [
+          196,
+          231,
+          253
+        ],
+        [
+          236,
+          225,
+          196
+        ],
+        [
+          116,
+          1,
+          37
+        ]
+      ],
+      "label": "palette",
+      "confirmed": [
+        [
+          216,
+          0,
+          32
+        ],
+        [
+          196,
+          231,
+          253
+        ],
+        [
+          236,
+          225,
+          196
+        ],
+        [
+          116,
+          1,
+          37
+        ]
+      ]
+    },
+    "device_errors": 0
+  },
+  {
+    "scene": "4/5  Mavi sahne + beyaz altyazi",
+    "algo": "palette",
+    "expect": "Beklenen: tum bolgeler MAVI, altyazi beyazi yansimaz, titreme yok",
+    "final": {
+      "t": 44.0,
+      "intended": [
+        [
+          26,
+          48,
+          217
+        ],
+        [
+          26,
+          48,
+          217
+        ],
+        [
+          26,
+          48,
+          217
+        ],
+        [
+          26,
+          48,
+          217
+        ]
+      ],
+      "label": "palette",
+      "confirmed": [
+        [
+          26,
+          48,
+          217
+        ],
+        [
+          26,
+          48,
+          217
+        ],
+        [
+          26,
+          48,
+          217
+        ],
+        [
+          26,
+          48,
+          217
+        ]
+      ]
+    },
+    "device_errors": 0
+  },
+  {
+    "scene": "5/5  Letterbox'li (siyah seritli) turuncu/mor sahne",
+    "algo": "adaptive",
+    "expect": "Beklenen: turuncu ve mor; siyah seritler klavyeyi karartmaz",
+    "final": {
+      "t": 56.1,
+      "intended": [
+        [
+          255,
+          120,
+          20
+        ],
+        [
+          255,
+          120,
+          20
+        ],
+        [
+          133,
+          0,
+          209
+        ],
+        [
+          133,
+          0,
+          209
+        ]
+      ],
+      "label": "multicolor",
+      "confirmed": [
+        [
+          255,
+          120,
+          20
+        ],
+        [
+          255,
+          120,
+          20
+        ],
+        [
+          133,
+          0,
+          209
+        ],
+        [
+          133,
+          0,
+          209
+        ]
+      ]
+    },
+    "device_errors": 0
+  }
+]

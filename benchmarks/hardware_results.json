@@ -1,0 +1,61 @@
+{
+  "snippet": {
+    "at": "2026-11-07 22:07:33",
+    "select_identical": true,
+    "steady_identical": true
+  },
+  "probe": {
+    "at": "2026-11-07 22:07:34",
+    "device": "MSI MysticLight MS-1565"
+  },
+  "latency": {
+    "at": "2026-11-07 22:07:55",
+    "rates": {
+      "5.0": {
+        "target_hz": 5.0,
+        "frames": 20,
+        "achieved_hz": 5.26,
+        "frame_ms_median": 5.2,
+        "frame_ms_p95": 5.89,
+        "frame_ms_max": 8.34,
+        "packet_ms_median": 0.6,
+        "packet_ms_p95": 0.759,
+        "late_frames": 0,
+        "duty_cycle_pct": 2.8
+      },
+      "10.0": {
+        "target_hz": 10.0,
+        "frames": 40,
+        "achieved_hz": 10.24,
+        "frame_ms_median": 5.36,
+        "frame_ms_p95": 6.52,
+        "frame_ms_max": 9.37,
+        "packet_ms_median": 0.612,
+        "packet_ms_p95": 0.93,
+        "late_frames": 0,
+        "duty_cycle_pct": 5.6
+      },
+      "15.0": {
+        "target_hz": 15.0,
+        "frames": 60,
+        "achieved_hz": 15.23,
+        "frame_ms_median": 5.04,
+        "frame_ms_p95": 5.83,
+        "frame_ms_max": 6.23,
+        "packet_ms_median": 0.591,
+        "packet_ms_p95": 0.78,
+        "late_frames": 0,
+        "duty_cycle_pct": 7.9
+      }
+    },
+    "ack_ok": 962,
+    "ack_failed": 0
+  },
+  "zones": {
+    "at": "2026-11-07 22:07:55",
+    "frame_ms": 5.2402999717742205,
+    "packets": 8,
+    "ack_ok": 8,
+    "ack_failed": 0
+  }
+}

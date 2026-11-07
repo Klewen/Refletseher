@@ -1,0 +1,226 @@
+{
+  "timestamp": "2026-11-07 23:21:54",
+  "machine": {
+    "cpu_count": 24,
+    "cpu": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python": "3.12.14"
+  },
+  "color_extraction_ms": {
+    "dominant": {
+      "n": 140,
+      "median_ms": 1.571,
+      "p95_ms": 3.671,
+      "max_ms": 4.212
+    },
+    "palette": {
+      "n": 140,
+      "median_ms": 1.629,
+      "p95_ms": 4.383,
+      "max_ms": 4.596
+    },
+    "spatial": {
+      "n": 140,
+      "median_ms": 2.261,
+      "p95_ms": 6.366,
+      "max_ms": 6.777
+    },
+    "cinematic": {
+      "n": 140,
+      "median_ms": 1.679,
+      "p95_ms": 4.479,
+      "max_ms": 4.978
+    },
+    "adaptive": {
+      "n": 140,
+      "median_ms": 3.81,
+      "p95_ms": 11.576,
+      "max_ms": 12.246
+    }
+  },
+  "transition_step_ms": {
+    "n": 3000,
+    "median_ms": 0.183,
+    "p95_ms": 0.222,
+    "max_ms": 0.912
+  },
+  "capture": {
+    "monitor": "1: DISPLAY1 - 2560x1440",
+    "hdr": false,
+    "dxgi": {
+      "frames": 76,
+      "no_new_frame": 0,
+      "n": 76,
+      "median_ms": 5.647,
+      "p95_ms": 6.707,
+      "max_ms": 13.894
+    },
+    "winrt": {
+      "frames": 77,
+      "no_new_frame": 0,
+      "n": 77,
+      "median_ms": 5.133,
+      "p95_ms": 6.53,
+      "max_ms": 8.396
+    },
+    "gdi": {
+      "frames": 49,
+      "no_new_frame": 0,
+      "n": 49,
+      "median_ms": 26.841,
+      "p95_ms": 29.85,
+      "max_ms": 43.426
+    }
+  },
+  "pipeline_synthetic_mock": {
+    "eco": {
+      "hid": "mock",
+      "capture": "synthetic",
+      "performance": "eco",
+      "seconds": 6,
+      "capture_fps": 6.0,
+      "analysis_fps": 6.0,
+      "capture_ms": 0.26,
+      "analysis_ms": 1.74,
+      "transition_ms": 0.326,
+      "pipeline_ms": 2.49,
+      "engine_thread_cpu_pct_of_one_core": 3.11,
+      "process_cpu_pct_total_median": 0.13,
+      "process_rss_mb_max": 150.0,
+      "process_rss_mb_delta": 0.2,
+      "frames_captured": 36,
+      "frames_analyzed": 36,
+      "frames_no_change": 0,
+      "frames_static_skipped": 0,
+      "dropped_ticks": 0,
+      "engine_submissions": 124,
+      "deadband_suppressed": 20,
+      "hid_frames_applied": 37,
+      "hid_duplicates_skipped": 0,
+      "hid_frames_coalesced": 87,
+      "hid_packets": 286,
+      "hid_effective_updates_per_s": 6.17,
+      "hid_write_latency_ms_last": 0.008,
+      "hid_submit_to_write_latency": {
+        "n": 37,
+        "median_ms": 0.421,
+        "p95_ms": 18.961,
+        "max_ms": 18.97
+      },
+      "hid_errors": 0,
+      "hid_ack_failures": 286
+    },
+    "balanced": {
+      "hid": "mock",
+      "capture": "synthetic",
+      "performance": "balanced",
+      "seconds": 6,
+      "capture_fps": 12.0,
+      "analysis_fps": 12.0,
+      "capture_ms": 0.26,
+      "analysis_ms": 1.75,
+      "transition_ms": 0.299,
+      "pipeline_ms": 2.51,
+      "engine_thread_cpu_pct_of_one_core": 3.1,
+      "process_cpu_pct_total_median": 0.13,
+      "process_rss_mb_max": 150.0,
+      "process_rss_mb_delta": 0.0,
+      "frames_captured": 72,
+      "frames_analyzed": 70,
+      "frames_no_change": 0,
+      "frames_static_skipped": 2,
+      "dropped_ticks": 0,
+      "engine_submissions": 156,
+      "deadband_suppressed": 59,
+      "hid_frames_applied": 61,
+      "hid_duplicates_skipped": 0,
+      "hid_frames_coalesced": 95,
+      "hid_packets": 464,
+      "hid_effective_updates_per_s": 10.17,
+      "hid_write_latency_ms_last": 0.008,
+      "hid_submit_to_write_latency": {
+        "n": 61,
+        "median_ms": 16.17,
+        "p95_ms": 40.827,
+        "max_ms": 49.379
+      },
+      "hid_errors": 0,
+      "hid_ack_failures": 464
+    },
+    "responsive": {
+      "hid": "mock",
+      "capture": "synthetic",
+      "performance": "responsive",
+      "seconds": 6,
+      "capture_fps": 24.0,
+      "analysis_fps": 6.0,
+      "capture_ms": 0.24,
+      "analysis_ms": 1.79,
+      "transition_ms": 0.27,
+      "pipeline_ms": 1.34,
+      "engine_thread_cpu_pct_of_one_core": 7.69,
+      "process_cpu_pct_total_median": 0.19,
+      "process_rss_mb_max": 150.0,
+      "process_rss_mb_delta": 0.0,
+      "frames_captured": 143,
+      "frames_analyzed": 16,
+      "frames_no_change": 0,
+      "frames_static_skipped": 127,
+      "dropped_ticks": 0,
+      "engine_submissions": 97,
+      "deadband_suppressed": 81,
+      "hid_frames_applied": 52,
+      "hid_duplicates_skipped": 0,
+      "hid_frames_coalesced": 45,
+      "hid_packets": 388,
+      "hid_effective_updates_per_s": 8.67,
+      "hid_write_latency_ms_last": 0.009,
+      "hid_submit_to_write_latency": {
+        "n": 52,
+        "median_ms": 15.564,
+        "p95_ms": 45.824,
+        "max_ms": 61.265
+      },
+      "hid_errors": 0,
+      "hid_ack_failures": 388
+    }
+  },
+  "pipeline_live": {
+    "balanced": {
+      "hid": "hidapi (real MS-1565)",
+      "capture": "dxgi",
+      "performance": "balanced",
+      "seconds": 10.0,
+      "capture_fps": 11.5,
+      "analysis_fps": 11.5,
+      "capture_ms": 5.61,
+      "analysis_ms": 2.1,
+      "transition_ms": 0.377,
+      "pipeline_ms": 8.28,
+      "engine_thread_cpu_pct_of_one_core": 9.3,
+      "process_cpu_pct_total_median": 0.39,
+      "process_rss_mb_max": 190.4,
+      "process_rss_mb_delta": 40.6,
+      "frames_captured": 111,
+      "frames_analyzed": 111,
+      "frames_no_change": 0,
+      "frames_static_skipped": 0,
+      "dropped_ticks": 0,
+      "engine_submissions": 332,
+      "deadband_suppressed": 0,
+      "hid_frames_applied": 94,
+      "hid_duplicates_skipped": 0,
+      "hid_frames_coalesced": 261,
+      "hid_packets": 744,
+      "hid_effective_updates_per_s": 9.4,
+      "hid_write_latency_ms_last": 1.066,
+      "hid_submit_to_write_latency": {
+        "n": 94,
+        "median_ms": 23.54,
+        "p95_ms": 41.189,
+        "max_ms": 114.224
+      },
+      "hid_errors": 0,
+      "hid_ack_failures": 0
+    }
+  }
+}

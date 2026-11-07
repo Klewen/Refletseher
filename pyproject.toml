@@ -1,0 +1,42 @@
+[project]
+name = "screensync-rgb"
+version = "1.0.0"
+description = "ScreenSync RGB - MSI MysticLight MS-1565 keyboard ambient lighting studio for Windows"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "dxcam[winrt]>=0.3.0",
+    "hidapi>=0.15.0",
+    "mss>=10.2.0",
+    "numpy>=2.5.4",
+    "opencv-python-headless>=5.0.0.93",
+    "psutil>=7.2.2",
+    "pyside6-essentials>=6.12.0",
+]
+
+[project.scripts]
+screensync-rgb = "screensync.app:main"
+
+[project.gui-scripts]
+screensync-rgb-gui = "screensync.app:main"
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "screensync"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+    "hardware: talks to the physical MS-1565 controller (opt-in, run with --run-hardware)",
+    "gui: requires a Qt platform (runs offscreen)",
+]
+
+[dependency-groups]
+dev = [
+    "pyinstaller>=6.22.3",
+    "pytest>=9.2.0",
+    "pytest-qt>=4.5.0",
+]

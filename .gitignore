@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+build/
+dist/
+.pytest_cache/
+benchmarks/last_run.log
+*.spec.bak
+.ruff_cache/
