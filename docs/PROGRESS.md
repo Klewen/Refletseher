@@ -45,6 +45,12 @@
 - Windows başlangıç kaydı kullanıcının isteğiyle açık bırakıldı; uygulama gerçek veri klasörüyle tepside çalışıyor.
 - Testler: 157 geçti (Modern Standby olayları, geçici hata/geri dönüş testleri eklendi).
 
+## 2026-11-08 — v1.0.1
+- Yeni logo: "Ufuk ve yansıma" (çerçevesiz, düz renkler; Sanzo Wada paleti: Naples Yellow, Peach Red, Deep Slate Olive, Neutral Gray). Tepsi durumları: normal / senkron (canlı nokta) / kapalı (gri).
+- MIT lisansı ve üçüncü taraf bildirimleri (zip'e de ekleniyor).
+- Sürüm dosya adı sürümsüz: `ScreenSyncRGB-win64.zip` (README'deki "latest" bağlantısı kalıcı).
+- `scripts/install_local.ps1`: kullanıcı başına kurulum (`%LOCALAPPDATA%\Programs\ScreenSyncRGB`), Başlat menüsü + masaüstü kısayolu, başlangıç kaydını kurulu kopyaya yönlendirme.
+
 ### Bekleyen (donanımda doğrulama)
 Bkz. [HARDWARE_VALIDATION.md](HARDWARE_VALIDATION.md): oturum açılışında otomatik başlamanın gözlemi, gerçek film/dizi içeriği,
 harici monitör, uzun süreli MSI Center çakışması. HDR bu panelde uygulanamaz.

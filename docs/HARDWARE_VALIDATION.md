@@ -66,6 +66,6 @@ uv run python scripts/cinema_reel.py
 
 ## Beklemedeki maddeler için kontrol listesi
 
-- [ ] Bir sonraki oturum açılışında ScreenSync RGB'nin tepside kendiliğinden başladığını kontrol edin (Ayarlar → "Windows başlangıcında çalıştır" ile kapatılabilir; exe klasörünü taşırsanız ayarı kapatıp yeniden açın).
+- [ ] Bir sonraki oturum açılışında ScreenSync RGB'nin tepside kendiliğinden başladığını kontrol edin (kayıt artık kurulu kopyayı gösteriyor: `%LOCALAPPDATA%\Programs\ScreenSyncRGB`; Ayarlar → "Windows başlangıcında çalıştır" ile kapatılabilir).
 - [ ] Gerçek bir film/dizi sahnesinde Palet, Sinematik ve Uyarlanabilir modları izleyin.
 - [ ] Harici monitör bağlayıp Ekran listesinden seçin.

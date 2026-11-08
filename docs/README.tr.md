@@ -44,7 +44,7 @@ Windows uygulaması derlemek (testler geçmezse paketleme yapılmaz):
 powershell -ExecutionPolicy Bypass -File scripts\build_exe.ps1
 ```
 
-Çıktı: `dist\ScreenSyncRGB\ScreenSyncRGB.exe` ve `dist\ScreenSyncRGB-1.0.0-win64.zip`. Exe imzasızdır; SmartScreen uyarısı için [kullanım kılavuzuna](USER_GUIDE.md) bakın.
+Çıktı: `dist\ScreenSyncRGB\ScreenSyncRGB.exe` ve `dist\ScreenSyncRGB-win64.zip`. Exe imzasızdır; SmartScreen uyarısı için [kullanım kılavuzuna](USER_GUIDE.md) bakın.
 
 ## Testler ve ölçümler
 

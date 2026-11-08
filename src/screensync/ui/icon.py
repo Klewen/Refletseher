@@ -1,66 +1,81 @@
-"""Programmatically drawn application icon (no binary assets needed)."""
+"""ScreenSync RGB brand mark, drawn in code (no binary assets needed).
+
+"Horizon & reflection": a rising sun above the horizon whose light is
+mirrored below as four bars - the screen's colour carried into the four
+lighting zones. Frameless; the silhouette is the logo.
+
+Palette (Sanzo Wada, *A Dictionary of Color Combinations*):
+Naples Yellow #FAED8F, Peach Red #FF3319, Deep Slate Olive #172713,
+Neutral Gray #B5D1CC. Flat colours only.
+"""
 
 from __future__ import annotations
 
-from PySide6.QtCore import QRectF, Qt
-from PySide6.QtGui import QColor, QIcon, QLinearGradient, QPainter, QPen, QPixmap
+from PySide6.QtCore import QPointF, QRectF, Qt
+from PySide6.QtGui import QColor, QIcon, QPainter, QPainterPath, QPixmap
 
-ZONE_COLORS = ("#FF3D6E", "#A855F7", "#22D3EE", "#34D399")
+NAPLES_YELLOW = "#FAED8F"
+PEACH_RED = "#FF3319"
+DEEP_SLATE_OLIVE = "#172713"
+NEUTRAL_GRAY = "#B5D1CC"
+
+SUN = PEACH_RED
+CORE = NAPLES_YELLOW
+BARS = (NAPLES_YELLOW, PEACH_RED, NEUTRAL_GRAY, DEEP_SLATE_OLIVE)
+BAR_LENGTHS = (0.20, 0.28, 0.24, 0.16)
+OFF_TONES = ("#6F7A78", "#8C9896", "#6F7A78", "#5A6462")
+
+
+def paint_mark(p: QPainter, s: float, state: str = "normal") -> None:
+    """Draw the mark into an ``s`` x ``s`` square at the painter's origin."""
+    off = state == "off"
+    p.setPen(Qt.PenStyle.NoPen)
+    horizon_y = s * 0.52
+    radius = s * 0.27
+    centre = QPointF(s * 0.5, horizon_y - s * 0.035)
+    above = QPainterPath()
+    above.addRect(QRectF(0, 0, s, centre.y()))
+    disc = QPainterPath()
+    disc.addEllipse(centre, radius, radius)
+    p.setBrush(QColor(OFF_TONES[1] if off else SUN))
+    p.drawPath(disc.intersected(above))
+    core = QPainterPath()
+    core.addEllipse(centre, radius * 0.52, radius * 0.52)
+    p.setBrush(QColor(OFF_TONES[0] if off else CORE))
+    p.drawPath(core.intersected(above))
+    gap = s * 0.035
+    width = (2 * radius - 3 * gap) / 4
+    for i, length in enumerate(BAR_LENGTHS):
+        p.setBrush(QColor(OFF_TONES[i] if off else BARS[i]))
+        p.drawRoundedRect(QRectF(s * 0.5 - radius + i * (width + gap), horizon_y, width, s * length), width / 2, width / 2)
+    if state == "sync":
+        # small live dot: screen sync is running
+        p.setBrush(QColor(PEACH_RED))
+        p.drawEllipse(QPointF(s * 0.86, s * 0.16), s * 0.085, s * 0.085)
 
 
 def render_icon(size: int, state: str = "normal") -> QPixmap:
-    pm = QPixmap(size, size)
+    """Render at 512 px and downsample: crisp edges at every icon size."""
+    big = 512
+    pm = QPixmap(big, big)
     pm.fill(Qt.GlobalColor.transparent)
     p = QPainter(pm)
     p.setRenderHint(QPainter.RenderHint.Antialiasing)
-    s = float(size)
-    bg = QRectF(s * 0.04, s * 0.04, s * 0.92, s * 0.92)
-    g = QLinearGradient(bg.topLeft(), bg.bottomRight())
-    g.setColorAt(0, QColor("#1D1F29"))
-    g.setColorAt(1, QColor("#0B0C10"))
-    p.setPen(QPen(QColor(255, 255, 255, 30), max(1.0, s / 64)))
-    p.setBrush(g)
-    p.drawRoundedRect(bg, s * 0.22, s * 0.22)
-
-    # screen bar
-    scr = QRectF(s * 0.2, s * 0.18, s * 0.6, s * 0.2)
-    sg = QLinearGradient(scr.topLeft(), scr.topRight())
-    for i, c in enumerate(ZONE_COLORS):
-        sg.setColorAt(i / 3, QColor(c))
-    p.setPen(Qt.PenStyle.NoPen)
-    p.setBrush(sg)
-    p.drawRoundedRect(scr, s * 0.05, s * 0.05)
-
-    # keyboard: 3 rows x 4 zones
-    kx, ky, kw, kh = s * 0.16, s * 0.48, s * 0.68, s * 0.34
-    rows, cols = 3, 8
-    gap = max(1.0, s * 0.025)
-    cw = (kw - gap * (cols - 1)) / cols
-    ch = (kh - gap * (rows - 1)) / rows
-    dim = state == "off"
-    for r in range(rows):
-        for c in range(cols):
-            zone = c // 2
-            col = QColor(ZONE_COLORS[zone])
-            if dim:
-                col = QColor("#3A3D48")
-            if r == 2 and 2 <= c <= 5:
-                continue
-            p.setBrush(col)
-            p.drawRoundedRect(QRectF(kx + c * (cw + gap), ky + r * (ch + gap), cw, ch), s * 0.02, s * 0.02)
-    # space bar
-    p.setBrush(QColor("#3A3D48") if dim else QColor("#C9CDD8"))
-    p.drawRoundedRect(QRectF(kx + 2 * (cw + gap), ky + 2 * (ch + gap), 4 * cw + 3 * gap, ch), s * 0.02, s * 0.02)
-    if state == "sync":
-        p.setBrush(QColor("#34D399"))
-        p.setPen(QPen(QColor("#0B0C10"), max(1.0, s / 32)))
-        p.drawEllipse(QRectF(s * 0.68, s * 0.06, s * 0.26, s * 0.26))
+    paint_mark(p, float(big), state)
     p.end()
-    return pm
+    if size == big:
+        return pm
+    return pm.scaled(size, size, Qt.AspectRatioMode.IgnoreAspectRatio, Qt.TransformationMode.SmoothTransformation)
+
+
+_CACHE: dict[str, QIcon] = {}
 
 
 def app_icon(state: str = "normal") -> QIcon:
-    icon = QIcon()
-    for sz in (16, 20, 24, 32, 40, 48, 64, 128, 256):
-        icon.addPixmap(render_icon(sz, state))
+    icon = _CACHE.get(state)
+    if icon is None:
+        icon = QIcon()
+        for sz in (16, 20, 24, 32, 40, 48, 64, 128, 256):
+            icon.addPixmap(render_icon(sz, state))
+        _CACHE[state] = icon
     return icon

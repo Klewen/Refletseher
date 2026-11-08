@@ -2,8 +2,11 @@
 
 ## Başlatma
 
-- Paketlenmiş: `dist\ScreenSyncRGB\ScreenSyncRGB.exe` (klasörün tamamını istediğiniz yere taşıyabilirsiniz).
-- Kaynaktan: `uv run screensync-rgb`
+- Kurulu kopya: **Başlat menüsü → "ScreenSync RGB"** veya masaüstündeki kısayol. Dosyalar `%LOCALAPPDATA%\Programs\ScreenSyncRGB` klasöründedir.
+  Uygulama çalışırken sistem tepsisinde (saatin yanında, gerekirse ^ okuna tıklayın) durur; simgeye tıklamak pencereyi açar.
+- Kaynaktan derleyip kurmak/güncellemek: `scripts\build_exe.ps1` ardından `scripts\install_local.ps1`.
+- Zip'ten: `ScreenSyncRGB-win64.zip` dosyasını kalıcı bir klasöre çıkarıp `ScreenSyncRGB.exe`'yi çalıştırın.
+- Kaynaktan çalıştırma: `uv run screensync-rgb`
 
 Komut satırı seçenekleri:
 

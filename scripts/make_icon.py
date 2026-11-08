@@ -49,7 +49,10 @@ def main() -> int:
     out.mkdir(exist_ok=True)
     write_ico(out / "icon.ico")
     (out / "icon.png").write_bytes(png_bytes(256))
-    print("wrote", out / "icon.ico")
+    docs = out.parent / "docs"
+    docs.mkdir(exist_ok=True)
+    (docs / "logo.png").write_bytes(png_bytes(512))
+    print("wrote", out / "icon.ico", "and", docs / "logo.png")
     return 0
 
 

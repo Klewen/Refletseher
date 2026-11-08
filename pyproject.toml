@@ -1,6 +1,6 @@
 [project]
 name = "screensync-rgb"
-version = "1.0.0"
+version = "1.0.1"
 description = "ScreenSync RGB - MSI MysticLight MS-1565 keyboard ambient lighting studio for Windows"
 requires-python = ">=3.12,<3.13"
 license = "MIT"

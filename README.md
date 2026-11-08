@@ -1,4 +1,6 @@
-# ScreenSync RGB
+<p align="center"><img src="docs/logo.png" alt="ScreenSync RGB logo" width="140"></p>
+
+<h1 align="center">ScreenSync RGB</h1>
 
 **Ambient, screen-synced lighting and full manual RGB control for the MSI Katana 15 HX 4-zone keyboard, without MSI Center.**
 
@@ -6,7 +8,7 @@ ScreenSync RGB watches what is on your screen (films, series, games, the desktop
 zones of your keyboard in real time, with smooth, flicker-free transitions. It also works as a lightweight, independent RGB studio:
 per-zone colours, native keyboard effects, profiles and automation.
 
-[![Download for Windows](https://img.shields.io/badge/Download-Windows%2064--bit-7C5CFF?style=for-the-badge&logo=windows)](https://github.com/Klewen/ScreenSync-RGB/releases/latest/download/ScreenSyncRGB-1.0.0-win64.zip)
+[![Download for Windows](https://img.shields.io/badge/Download-Windows%2064--bit-FF3319?style=for-the-badge&logo=windows)](https://github.com/Klewen/ScreenSync-RGB/releases/latest/download/ScreenSyncRGB-win64.zip)
 &nbsp;
 [![Latest release](https://img.shields.io/github/v/release/Klewen/ScreenSync-RGB?style=for-the-badge)](https://github.com/Klewen/ScreenSync-RGB/releases/latest)
 
@@ -45,7 +47,7 @@ The app only ever opens that exact HID device; if it isn't present, ScreenSync R
 
 ## Download and install
 
-1. **[Download `ScreenSyncRGB-1.0.0-win64.zip`](https://github.com/Klewen/ScreenSync-RGB/releases/latest/download/ScreenSyncRGB-1.0.0-win64.zip)** (≈72 MB) from the [Releases](https://github.com/Klewen/ScreenSync-RGB/releases) page.
+1. **[Download `ScreenSyncRGB-win64.zip`](https://github.com/Klewen/ScreenSync-RGB/releases/latest/download/ScreenSyncRGB-win64.zip)** (≈72 MB) from the [Releases](https://github.com/Klewen/ScreenSync-RGB/releases) page.
 2. Extract the zip to a permanent folder, e.g. `C:\Program Files\ScreenSyncRGB` or `C:\Tools\ScreenSyncRGB`.
    Keep the folder together: `ScreenSyncRGB.exe` needs the `_internal` folder next to it.
 3. Run **`ScreenSyncRGB.exe`**. No installer, no admin rights, no drivers.
@@ -178,7 +180,13 @@ Build the Windows executable (runs the tests first):
 powershell -ExecutionPolicy Bypass -File scripts\build_exe.ps1
 ```
 
-Output: `dist\ScreenSyncRGB\ScreenSyncRGB.exe` and `dist\ScreenSyncRGB-1.0.0-win64.zip`.
+Output: `dist\ScreenSyncRGB\ScreenSyncRGB.exe` and `dist\ScreenSyncRGB-win64.zip`.
+
+Install (or update) the build for your user under `%LOCALAPPDATA%\Programs\ScreenSyncRGB`, with Start Menu and Desktop shortcuts:
+
+```bash
+powershell -ExecutionPolicy Bypass -File scripts\install_local.ps1
+```
 
 Technical documentation (Turkish): [architecture](docs/ARCHITECTURE.md), [HID protocol](docs/HARDWARE_PROTOCOL.md),
 [colour engine](docs/COLOR_ENGINE.md), [safety](docs/SAFETY.md), [testing](docs/TESTING.md),
