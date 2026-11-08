@@ -20,7 +20,7 @@ def pytest_addoption(parser: pytest.Parser) -> None:
 
 
 def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item]) -> None:
-    if config.getoption("--run-hardware") or os.environ.get("SCREENSYNC_HARDWARE") == "1":
+    if config.getoption("--run-hardware") or os.environ.get("REFLETSEHER_HARDWARE") == "1":
         return
     skip = pytest.mark.skip(reason="hardware test: pass --run-hardware to enable")
     for item in items:
@@ -30,7 +30,7 @@ def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item
 
 @pytest.fixture
 def mock_backend():
-    from screensync.device.mock import MockBackend
+    from refletseher.device.mock import MockBackend
 
     return MockBackend()
 
@@ -38,5 +38,5 @@ def mock_backend():
 @pytest.fixture
 def tmp_appdata(tmp_path, monkeypatch):
     """Redirect every app data path into a temp folder."""
-    monkeypatch.setenv("SCREENSYNC_HOME", str(tmp_path / "home"))
+    monkeypatch.setenv("REFLETSEHER_HOME", str(tmp_path / "home"))
     return tmp_path / "home"

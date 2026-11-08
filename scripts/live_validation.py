@@ -56,7 +56,7 @@ class Pattern(QWidget):
         p.setPen(QColor(255, 255, 255))
         f = QFont("Segoe UI", 16)
         p.setFont(f)
-        p.drawText(30, 40, f"ScreenSync RGB live validation · {phase} · {max(0, self.seconds - t):.0f}s · Esc = stop")
+        p.drawText(30, 40, f"Refletseher live validation · {phase} · {max(0, self.seconds - t):.0f}s · Esc = stop")
 
 
 def main() -> int:

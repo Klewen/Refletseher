@@ -2,11 +2,11 @@
 
 ## Başlatma
 
-- Kurulu kopya: **Başlat menüsü → "ScreenSync RGB"** veya masaüstündeki kısayol. Dosyalar `%LOCALAPPDATA%\Programs\ScreenSyncRGB` klasöründedir.
+- Kurulu kopya: **Başlat menüsü → "Refletseher"** veya masaüstündeki kısayol. Dosyalar `%LOCALAPPDATA%\Programs\Refletseher` klasöründedir.
   Uygulama çalışırken sistem tepsisinde (saatin yanında, gerekirse ^ okuna tıklayın) durur; simgeye tıklamak pencereyi açar.
 - Kaynaktan derleyip kurmak/güncellemek: `scripts\build_exe.ps1` ardından `scripts\install_local.ps1`.
-- Zip'ten: `ScreenSyncRGB-win64.zip` dosyasını kalıcı bir klasöre çıkarıp `ScreenSyncRGB.exe`'yi çalıştırın.
-- Kaynaktan çalıştırma: `uv run screensync-rgb`
+- Zip'ten: `Refletseher-win64.zip` dosyasını kalıcı bir klasöre çıkarıp `Refletseher.exe`'yi çalıştırın.
+- Kaynaktan çalıştırma: `uv run refletseher`
 
 Komut satırı seçenekleri:
 
@@ -24,9 +24,9 @@ güvenlik yazılımlarını atlatmaya çalışmaz. İsterseniz `scripts\build_ex
 
 ## MSI Center hakkında
 
-MSI Center / Mystic Light aynı kontrolcüye yazabilir. ScreenSync RGB bunu algılarsa sarı bir uyarı gösterir.
+MSI Center / Mystic Light aynı kontrolcüye yazabilir. Refletseher bunu algılarsa sarı bir uyarı gösterir.
 En temiz kullanım için MSI Center'da Mystic Light özelliğini kapatın veya kaldırın. Hizmeti durdurmak isterseniz `services.msc` ile kendiniz yapın.
-ScreenSync RGB MSI hizmetlerine, sürücülere veya MSI Center'a dokunmaz. Uygulama kontrolcünün kalıcı belleğine yazmaz;
+Refletseher MSI hizmetlerine, sürücülere veya MSI Center'a dokunmaz. Uygulama kontrolcünün kalıcı belleğine yazmaz;
 bilgisayar yeniden başlatıldığında klavye MSI'da kayıtlı varsayılana döner.
 
 ## Sayfalar
@@ -74,8 +74,8 @@ gerçek donanıma yaz (kapalıysa simülasyon), güncelleme hızı, onay okumas�
 Sol tık: pencereyi göster/gizle. Sağ tık: Ekran senkronunu başlat/durdur, ışıkları aç/kapat, profiller, çıkış.
 
 ## Veri konumları
-- Ayarlar ve profiller: `%APPDATA%\ScreenSyncRGB\` (`settings.json`, `profiles.json`)
-- Günlükler: `%LOCALAPPDATA%\ScreenSyncRGB\logs\screensync.log` (döner, 3×1 MB)
+- Ayarlar ve profiller: `%APPDATA%\Refletseher\` (`settings.json`, `profiles.json`)
+- Günlükler: `%LOCALAPPDATA%\Refletseher\logs\refletseher.log` (döner, 3×1 MB)
 
 ## Sorun giderme
 | Belirti | Çözüm |

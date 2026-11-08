@@ -331,7 +331,7 @@
   "hardware.conflict_list": "Çalışan MSI bileşenleri: {apps}",
   "hardware.conflict_infra": "Yalnızca MSI altyapı hizmetleri çalışıyor ({apps}); Mystic Light aydınlatma bileşeni algılanmadı.",
   "hardware.conflict_clear": "Mystic Light bileşeni algılanmadı.",
-  "hardware.conflict_steps": "Mystic Light aynı kontrolcüye yazarsa renkleriniz beklenmedik şekilde değişebilir. Önerilen: MSI Center'da Mystic Light özelliğini kapatın veya kaldırın (MSI Center → Özellikler). Hizmeti durdurmak isterseniz bunu services.msc üzerinden kendiniz yapabilirsiniz. ScreenSync RGB hiçbir MSI hizmetini durdurmaz, kaldırmaz veya sürücü değiştirmez.",
+  "hardware.conflict_steps": "Mystic Light aynı kontrolcüye yazarsa renkleriniz beklenmedik şekilde değişebilir. Önerilen: MSI Center'da Mystic Light özelliğini kapatın veya kaldırın (MSI Center → Özellikler). Hizmeti durdurmak isterseniz bunu services.msc üzerinden kendiniz yapabilirsiniz. Refletseher hiçbir MSI hizmetini durdurmaz, kaldırmaz veya sürücü değiştirmez.",
   "hardware.safety": "Güvenlik",
   "hardware.safety_text": "Yalnızca izin listesindeki HID paketleri gönderilir: {allowed}. Kalıcı belleğe yazma ve diğer riskli komutlar ({forbidden}) sürücü katmanında engellenir. Her paket gönderilmeden önce 64 bayt uzunluk, bölge maskesi ve renk sınırları açısından doğrulanır. Tüm yazımlar tek bir iş parçacığından, hız sınırlı olarak yapılır.",
   "hardware.verified_effects": "Gerçek donanımda gözlemle doğrulanan efekt türleri: {effects}.",
@@ -403,12 +403,12 @@
   "settings.open_log_folder": "Günlük klasörünü aç",
   "settings.open_data_folder": "Veri klasörünü aç",
   "settings.about": "Hakkında",
-  "settings.about_text": "ScreenSync RGB {version} · MSI Katana 15 HX (MysticLight MS-1565, VID 0x1462 / PID 0x1601) için bağımsız aydınlatma stüdyosu. MSI Center ile bağlantılı değildir. Donanıma yalnızca kalıcı olmayan, doğrulanmış komutlar gönderilir.",
+  "settings.about_text": "Refletseher {version} · MSI Katana 15 HX (MysticLight MS-1565, VID 0x1462 / PID 0x1601) için bağımsız aydınlatma stüdyosu. MSI Center ile bağlantılı değildir. Donanıma yalnızca kalıcı olmayan, doğrulanmış komutlar gönderilir.",
 
   "tray.show": "Pencereyi göster",
   "tray.profiles": "Profiller",
   "tray.quit": "Çıkış",
-  "tray.still_running": "ScreenSync RGB sistem tepsisinde çalışmaya devam ediyor.",
+  "tray.still_running": "Refletseher sistem tepsisinde çalışmaya devam ediyor.",
 
   "recovery.restarted": "Otomatik kurtarma: {what} yeniden başlatıldı"
 }

@@ -1,9 +1,12 @@
-# ScreenSync RGB (Türkçe)
+# Refletseher (Türkçe)
 
 > English: [README](../README.md)
 
 MSI Katana 15 HX B14W'nin 4 bölgeli klavyesi (MysticLight **MS-1565**, VID `0x1462` / PID `0x1601`) için Windows 11 masaüstü
 aydınlatma stüdyosu: ekrandaki film/oyun renklerini gerçek zamanlı klavyeye yansıtır ve MSI Center'dan bağımsız manuel RGB kontrolü sağlar.
+
+*Refletseher*, Fransızca *reflet* (yansıma) ile Türkçe *seher* (şafak vakti) sözcüklerinden oluşur: ekranın ışığının yansıması.
+Uygulamanın eski adı **ScreenSync RGB**'dir.
 
 ![Kontrol paneli](screenshots/tr/dashboard.png)
 
@@ -29,13 +32,13 @@ uv sync
 ```
 
 ```bash
-uv run screensync-rgb
+uv run refletseher
 ```
 
 Donanıma dokunmadan denemek için:
 
 ```bash
-uv run screensync-rgb --simulate
+uv run refletseher --simulate
 ```
 
 Windows uygulaması derlemek (testler geçmezse paketleme yapılmaz):
@@ -44,7 +47,7 @@ Windows uygulaması derlemek (testler geçmezse paketleme yapılmaz):
 powershell -ExecutionPolicy Bypass -File scripts\build_exe.ps1
 ```
 
-Çıktı: `dist\ScreenSyncRGB\ScreenSyncRGB.exe` ve `dist\ScreenSyncRGB-win64.zip`. Exe imzasızdır; SmartScreen uyarısı için [kullanım kılavuzuna](USER_GUIDE.md) bakın.
+Çıktı: `dist\Refletseher\Refletseher.exe` ve `dist\Refletseher-win64.zip`. Exe imzasızdır; SmartScreen uyarısı için [kullanım kılavuzuna](USER_GUIDE.md) bakın.
 
 ## Testler ve ölçümler
 
@@ -77,4 +80,4 @@ Gerçek donanım üzerinde: dengeli profilde yakalama→gönderim 8,3 ms, süre�
 | [BENCHMARKS](BENCHMARKS.md) | Performans ölçümleri |
 | [PROGRESS](PROGRESS.md) | İlerleme günlüğü |
 
-ScreenSync RGB MSI ile bağlantılı değildir. MSI Center'ın arayüzünü kopyalamaz ve onun bileşenlerini değiştirmez.
+Refletseher MSI ile bağlantılı değildir. MSI Center'ın arayüzünü kopyalamaz ve onun bileşenlerini değiştirmez.

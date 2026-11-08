@@ -1,6 +1,6 @@
 """Tiny JSON based localisation. Turkish is the primary language.
 
-    from screensync.i18n import tr
+    from refletseher.i18n import tr
     tr("dashboard.title")
     tr("sync.fps", fps=12.5)
 

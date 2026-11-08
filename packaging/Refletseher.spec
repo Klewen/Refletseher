@@ -1,6 +1,6 @@
-# PyInstaller spec for ScreenSync RGB (Windows, one-folder, windowed).
+# PyInstaller spec for Refletseher (Windows, one-folder, windowed).
 #
-#   uv run pyinstaller packaging/ScreenSyncRGB.spec --noconfirm --clean
+#   uv run pyinstaller packaging/Refletseher.spec --noconfirm --clean
 #
 # One-folder (not one-file): starts faster and does not unpack into %TEMP%
 # on every launch, which also avoids a common antivirus heuristic. UPX is
@@ -16,14 +16,14 @@ SRC = ROOT / "src"
 hidden = []
 hidden += collect_submodules("dxcam")
 hidden += collect_submodules("winrt")
-hidden += collect_submodules("screensync")
+hidden += collect_submodules("refletseher")
 hidden += ["hid", "comtypes", "comtypes.client", "psutil", "mss", "mss.windows"]
 
 a = Analysis(
     [str(ROOT / "packaging" / "launcher.py")],
     pathex=[str(SRC)],
     binaries=[],
-    datas=[(str(SRC / "screensync" / "i18n" / "locales"), "screensync/i18n/locales")],
+    datas=[(str(SRC / "refletseher" / "i18n" / "locales"), "refletseher/i18n/locales")],
     hiddenimports=hidden,
     hookspath=[],
     runtime_hooks=[],
@@ -41,11 +41,11 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name="ScreenSyncRGB",
+    name="Refletseher",
     icon=str(ROOT / "packaging" / "icon.ico"),
     version=str(ROOT / "packaging" / "version_info.txt"),
     console=False,
     upx=False,
     disable_windowed_traceback=False,
 )
-coll = COLLECT(exe, a.binaries, a.datas, strip=False, upx=False, name="ScreenSyncRGB")
+coll = COLLECT(exe, a.binaries, a.datas, strip=False, upx=False, name="Refletseher")

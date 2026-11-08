@@ -120,14 +120,14 @@ def run_reel() -> int:
 
 def run_controller(simulate: bool) -> int:
     os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
-    os.environ["SCREENSYNC_HOME"] = tempfile.mkdtemp(prefix="screensync-reel-")
-    from screensync.color.settings import SyncMode
-    from screensync.core.controller import AppController
-    from screensync.core.settings import SettingsStore
-    from screensync.device.mock import MockBackend
-    from screensync.paths import profiles_file, settings_file
-    from screensync.profiles.model import SyncProfile
-    from screensync.profiles.store import ProfileStore
+    os.environ["REFLETSEHER_HOME"] = tempfile.mkdtemp(prefix="refletseher-reel-")
+    from refletseher.color.settings import SyncMode
+    from refletseher.core.controller import AppController
+    from refletseher.core.settings import SettingsStore
+    from refletseher.device.mock import MockBackend
+    from refletseher.paths import profiles_file, settings_file
+    from refletseher.profiles.model import SyncProfile
+    from refletseher.profiles.store import ProfileStore
 
     shared = MockBackend()
     ctrl = AppController(SettingsStore(settings_file()), ProfileStore(profiles_file()),

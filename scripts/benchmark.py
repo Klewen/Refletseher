@@ -1,4 +1,4 @@
-"""ScreenSync RGB benchmark.
+"""Refletseher benchmark.
 
     uv run python scripts/benchmark.py                       # synthetic + real capture, mock HID
     uv run python scripts/benchmark.py --animate             # show a moving colour window so DXGI gets frames
@@ -26,19 +26,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import numpy as np  # noqa: E402
 import psutil  # noqa: E402
 
-from screensync.capture import CaptureError, CaptureUnavailable, Region, create_backend  # noqa: E402
-from screensync.capture import synthetic as S  # noqa: E402
-from screensync.capture.monitors import enumerate_monitors, find_monitor  # noqa: E402
-from screensync.color.extractors import ColorAnalyzer  # noqa: E402
-from screensync.color.frame import compute_features  # noqa: E402
-from screensync.color.settings import AnalysisSettings, OutputSettings, SyncMode, TransitionSettings  # noqa: E402
-from screensync.core.settings import PERFORMANCE_PRESETS  # noqa: E402
-from screensync.device.mock import MockBackend  # noqa: E402
-from screensync.device.transport import HidapiBackend  # noqa: E402
-from screensync.device.worker import DeviceWorker, WorkerConfig  # noqa: E402
-from screensync.sync.engine import ScreenSyncEngine, SyncConfig  # noqa: E402
-from screensync.sync.output import finalize  # noqa: E402
-from screensync.sync.transition import TransitionEngine  # noqa: E402
+from refletseher.capture import CaptureError, CaptureUnavailable, Region, create_backend  # noqa: E402
+from refletseher.capture import synthetic as S  # noqa: E402
+from refletseher.capture.monitors import enumerate_monitors, find_monitor  # noqa: E402
+from refletseher.color.extractors import ColorAnalyzer  # noqa: E402
+from refletseher.color.frame import compute_features  # noqa: E402
+from refletseher.color.settings import AnalysisSettings, OutputSettings, SyncMode, TransitionSettings  # noqa: E402
+from refletseher.core.settings import PERFORMANCE_PRESETS  # noqa: E402
+from refletseher.device.mock import MockBackend  # noqa: E402
+from refletseher.device.transport import HidapiBackend  # noqa: E402
+from refletseher.device.worker import DeviceWorker, WorkerConfig  # noqa: E402
+from refletseher.sync.engine import ScreenSyncEngine, SyncConfig  # noqa: E402
+from refletseher.sync.output import finalize  # noqa: E402
+from refletseher.sync.transition import TransitionEngine  # noqa: E402
 
 
 def pct(values: list[float], q: float) -> float:

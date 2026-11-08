@@ -134,7 +134,7 @@ class ProfileStore:
     def export(self, pids: Iterable[str], path: Path) -> int:
         with self._lock:
             items = [self._profiles[i].to_dict() for i in pids if i in self._profiles]
-        atomic_write_json(Path(path), {"app": "ScreenSyncRGB", "version": SCHEMA_VERSION, "profiles": items})
+        atomic_write_json(Path(path), {"app": "Refletseher", "version": SCHEMA_VERSION, "profiles": items})
         return len(items)
 
     def import_file(self, path: Path) -> tuple[list[Profile], list[str]]:

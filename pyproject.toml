@@ -1,7 +1,7 @@
 [project]
-name = "screensync-rgb"
-version = "1.0.1"
-description = "ScreenSync RGB - MSI MysticLight MS-1565 keyboard ambient lighting studio for Windows"
+name = "refletseher"
+version = "1.1.0"
+description = "Refletseher - MSI MysticLight MS-1565 keyboard ambient lighting studio for Windows"
 requires-python = ">=3.12,<3.13"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -17,17 +17,17 @@ dependencies = [
 ]
 
 [project.scripts]
-screensync-rgb = "screensync.app:main"
+refletseher = "refletseher.app:main"
 
 [project.gui-scripts]
-screensync-rgb-gui = "screensync.app:main"
+refletseher-gui = "refletseher.app:main"
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-module-name = "screensync"
+module-name = "refletseher"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

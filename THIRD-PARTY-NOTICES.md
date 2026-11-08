@@ -1,6 +1,6 @@
 # Third-party notices
 
-ScreenSync RGB itself is licensed under the [MIT License](LICENSE). The Windows release (`ScreenSyncRGB-*-win64.zip`)
+Refletseher itself is licensed under the [MIT License](LICENSE). The Windows release (`Refletseher-win64.zip`)
 bundles the following third-party components. Each component remains under its own license.
 
 | Component | Version | License | Project |
@@ -31,4 +31,4 @@ applications built with it under any license.
 
 ## Trademarks
 
-MSI, Mystic Light and Katana are trademarks of Micro-Star International Co., Ltd. ScreenSync RGB is not affiliated with MSI.
+MSI, Mystic Light and Katana are trademarks of Micro-Star International Co., Ltd. Refletseher is not affiliated with MSI.

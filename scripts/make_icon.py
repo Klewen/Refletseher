@@ -20,7 +20,7 @@ SIZES = (16, 20, 24, 32, 40, 48, 64, 128, 256)
 
 
 def png_bytes(size: int) -> bytes:
-    from screensync.ui.icon import render_icon
+    from refletseher.ui.icon import render_icon
 
     data = QByteArray()
     buf = QBuffer(data)

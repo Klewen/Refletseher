@@ -11,7 +11,9 @@ from pathlib import Path
 log = logging.getLogger(__name__)
 
 RUN_KEY = r"Software\Microsoft\Windows\CurrentVersion\Run"
-VALUE_NAME = "ScreenSyncRGB"
+VALUE_NAME = "Refletseher"
+#: Run-key value written by v1.0.x (before the rename to Refletseher)
+LEGACY_VALUE_NAMES = ("ScreenSync" + "RGB",)
 
 
 def launch_command() -> str:
@@ -19,7 +21,7 @@ def launch_command() -> str:
         return f'"{sys.executable}" --tray'
     exe = Path(sys.executable)
     pyw = exe.with_name("pythonw.exe")
-    return f'"{pyw if pyw.exists() else exe}" -m screensync --tray'
+    return f'"{pyw if pyw.exists() else exe}" -m refletseher --tray'
 
 
 def is_enabled() -> bool:
@@ -49,7 +51,38 @@ def set_enabled(enabled: bool) -> bool:
                     winreg.DeleteValue(key, VALUE_NAME)
                 except FileNotFoundError:
                     pass
+            for legacy in LEGACY_VALUE_NAMES:  # never leave two start entries
+                try:
+                    winreg.DeleteValue(key, legacy)
+                except FileNotFoundError:
+                    pass
         return True
     except OSError as exc:
         log.error("autostart update failed: %s", exc)
         return False
+
+
+def migrate_legacy() -> bool:
+    """If the pre-rename start entry exists, replace it with ours.
+
+    Only acts when the user had enabled "Start with Windows" in v1.0.x, so the
+    preference is kept while the old entry (pointing at the old exe) goes."""
+    if sys.platform != "win32":
+        return False
+    import winreg
+
+    try:
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, RUN_KEY) as key:
+            found = False
+            for legacy in LEGACY_VALUE_NAMES:
+                try:
+                    winreg.QueryValueEx(key, legacy)
+                    found = True
+                except OSError:
+                    pass
+    except OSError:
+        return False
+    if not found:
+        return False
+    log.info("Replacing the pre-rename start-with-Windows entry")
+    return set_enabled(True)

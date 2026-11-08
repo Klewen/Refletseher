@@ -20,7 +20,7 @@ Son çalıştırma: **157 geçti, 4 atlandı** (atlananlar opt-in donanım testl
 
 ## Sentetik kareler
 
-`screensync.capture.synthetic`: `solid`, `vertical_bands`, `horizontal_bands`, `blobs`, `with_letterbox`, `with_subtitle`, `moving_scene`
+`refletseher.capture.synthetic`: `solid`, `vertical_bands`, `horizontal_bands`, `blobs`, `with_letterbox`, `with_subtitle`, `moving_scene`
 ve başarısızlık enjekte edebilen `SyntheticBackend`. Ekran yakalama olmadan tüm renk motoru ve uçtan uca senkron test edilir.
 
 ## Sahte HID

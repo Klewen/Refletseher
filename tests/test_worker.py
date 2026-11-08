@@ -5,11 +5,11 @@ import time
 
 import pytest
 
-from screensync.device import protocol as P
-from screensync.device.driver import HardwareEffect
-from screensync.device.mock import MockBackend
-from screensync.device.ratelimit import MinInterval, RateMeter, TokenBucket, backoff_delay
-from screensync.device.worker import ConnectionState, DeviceWorker, WorkerConfig
+from refletseher.device import protocol as P
+from refletseher.device.driver import HardwareEffect
+from refletseher.device.mock import MockBackend
+from refletseher.device.ratelimit import MinInterval, RateMeter, TokenBucket, backoff_delay
+from refletseher.device.worker import ConnectionState, DeviceWorker, WorkerConfig
 
 RED, GREEN, BLUE, WHITE = (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 255)
 

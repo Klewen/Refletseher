@@ -1,7 +1,7 @@
 VSVersionInfo(
   ffi=FixedFileInfo(
-    filevers=(1, 0, 1, 0),
-    prodvers=(1, 0, 1, 0),
+    filevers=(1, 1, 0, 0),
+    prodvers=(1, 1, 0, 0),
     mask=0x3f,
     flags=0x0,
     OS=0x40004,
@@ -14,14 +14,14 @@ VSVersionInfo(
       [
       StringTable(
         '041F04B0',
-        [StringStruct('CompanyName', 'ScreenSync RGB (personal build)'),
-        StringStruct('FileDescription', 'ScreenSync RGB - keyboard ambient lighting studio'),
-        StringStruct('FileVersion', '1.0.1'),
-        StringStruct('InternalName', 'ScreenSyncRGB'),
+        [StringStruct('CompanyName', 'Refletseher (personal build)'),
+        StringStruct('FileDescription', 'Refletseher - keyboard ambient lighting studio'),
+        StringStruct('FileVersion', '1.1.0'),
+        StringStruct('InternalName', 'Refletseher'),
         StringStruct('LegalCopyright', 'Not affiliated with MSI'),
-        StringStruct('OriginalFilename', 'ScreenSyncRGB.exe'),
-        StringStruct('ProductName', 'ScreenSync RGB'),
-        StringStruct('ProductVersion', '1.0.1')])
+        StringStruct('OriginalFilename', 'Refletseher.exe'),
+        StringStruct('ProductName', 'Refletseher'),
+        StringStruct('ProductVersion', '1.1.0')])
       ]),
     VarFileInfo([VarStruct('Translation', [1055, 1200])])
   ]

@@ -1,9 +1,9 @@
 # MS-1565 HID Protokolü
 
-Bu belge, ScreenSync RGB'nin MSI MysticLight MS-1565 kontrolcüsüyle nasıl konuştuğunu anlatır.
+Bu belge, Refletseher'nin MSI MysticLight MS-1565 kontrolcüsüyle nasıl konuştuğunu anlatır.
 **Doğrulanmış** (gerçek donanımda gözlemlenmiş) davranış ile **belgelenmiş/teorik** davranış ayrı işaretlenmiştir.
 
-Kod: [`src/screensync/device/protocol.py`](../src/screensync/device/protocol.py), [`driver.py`](../src/screensync/device/driver.py), [`transport.py`](../src/screensync/device/transport.py)
+Kod: [`src/refletseher/device/protocol.py`](../src/refletseher/device/protocol.py), [`driver.py`](../src/refletseher/device/driver.py), [`transport.py`](../src/refletseher/device/transport.py)
 
 ## Cihaz kimliği (doğrulandı)
 

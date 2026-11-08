@@ -331,7 +331,7 @@
   "hardware.conflict_list": "Running MSI components: {apps}",
   "hardware.conflict_infra": "Only MSI infrastructure services are running ({apps}); no Mystic Light lighting component detected.",
   "hardware.conflict_clear": "No Mystic Light component detected.",
-  "hardware.conflict_steps": "If Mystic Light writes to the same controller, your colours may change unexpectedly. Recommended: turn off or uninstall the Mystic Light feature in MSI Center (MSI Center → Features). If you want to stop the service, do it yourself via services.msc. ScreenSync RGB never stops, removes or modifies MSI services or drivers.",
+  "hardware.conflict_steps": "If Mystic Light writes to the same controller, your colours may change unexpectedly. Recommended: turn off or uninstall the Mystic Light feature in MSI Center (MSI Center → Features). If you want to stop the service, do it yourself via services.msc. Refletseher never stops, removes or modifies MSI services or drivers.",
   "hardware.safety": "Safety",
   "hardware.safety_text": "Only allow-listed HID packets are sent: {allowed}. Writing to persistent memory and other risky commands ({forbidden}) are blocked in the driver layer. Every packet is validated for 64-byte length, zone mask and colour bounds before it is sent. All writes happen on a single thread, rate limited.",
   "hardware.verified_effects": "Effect types verified by observation on the real hardware: {effects}.",
@@ -403,12 +403,12 @@
   "settings.open_log_folder": "Open log folder",
   "settings.open_data_folder": "Open data folder",
   "settings.about": "About",
-  "settings.about_text": "ScreenSync RGB {version} · independent lighting studio for the MSI Katana 15 HX (MysticLight MS-1565, VID 0x1462 / PID 0x1601). Not affiliated with MSI Center. Only non-persistent, verified commands are sent to the hardware.",
+  "settings.about_text": "Refletseher {version} · independent lighting studio for the MSI Katana 15 HX (MysticLight MS-1565, VID 0x1462 / PID 0x1601). Not affiliated with MSI Center. Only non-persistent, verified commands are sent to the hardware.",
 
   "tray.show": "Show window",
   "tray.profiles": "Profiles",
   "tray.quit": "Quit",
-  "tray.still_running": "ScreenSync RGB keeps running in the system tray.",
+  "tray.still_running": "Refletseher keeps running in the system tray.",
 
   "recovery.restarted": "Automatic recovery: restarted {what}"
 }

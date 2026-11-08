@@ -12,7 +12,7 @@ import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-os.environ.setdefault("SCREENSYNC_HOME", tempfile.mkdtemp(prefix="screensync-snap-"))
+os.environ.setdefault("REFLETSEHER_HOME", tempfile.mkdtemp(prefix="refletseher-snap-"))
 
 
 def main() -> int:
@@ -25,21 +25,21 @@ def main() -> int:
     out.mkdir(parents=True, exist_ok=True)
     from PySide6.QtWidgets import QApplication
 
-    from screensync.capture.synthetic import SYNTHETIC_MONITOR, SyntheticBackend, moving_scene
-    from screensync.core.controller import AppController
-    from screensync.core.settings import SettingsStore
-    from screensync.device.conflicts import classify
-    from screensync.device.mock import MockBackend
-    from screensync.i18n import set_language
-    from screensync.paths import profiles_file, settings_file
-    from screensync.profiles.store import ProfileStore
-    from screensync.sync.engine import ScreenSyncEngine
-    from screensync.ui.main_window import MainWindow
-    from screensync.ui.theme import apply_theme
+    from refletseher.capture.synthetic import SYNTHETIC_MONITOR, SyntheticBackend, moving_scene
+    from refletseher.core.controller import AppController
+    from refletseher.core.settings import SettingsStore
+    from refletseher.device.conflicts import classify
+    from refletseher.device.mock import MockBackend
+    from refletseher.i18n import set_language
+    from refletseher.paths import profiles_file, settings_file
+    from refletseher.profiles.store import ProfileStore
+    from refletseher.sync.engine import ScreenSyncEngine
+    from refletseher.ui.main_window import MainWindow
+    from refletseher.ui.theme import apply_theme
 
     app = QApplication(sys.argv[:1])
     settings = SettingsStore(settings_file())
-    set_language(os.environ.get("SCREENSYNC_LANG", "tr"))
+    set_language(os.environ.get("REFLETSEHER_LANG", "tr"))
     apply_theme(app, "light" if light else "dark")
     backend = MockBackend()
     synth = SyntheticBackend(moving_scene)

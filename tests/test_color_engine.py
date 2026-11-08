@@ -5,12 +5,12 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from screensync.capture import synthetic as S
-from screensync.color.colorspace import delta_e, oklab_to_rgb, oklab_to_srgb_u8, rgb_to_oklab, srgb_u8_to_oklab
-from screensync.color.extractors import AdaptiveClassifier, ColorAnalyzer
-from screensync.color.frame import LetterboxTracker, compute_features, detect_bars
-from screensync.color.scene import FlashGuard, SceneCutDetector, signature
-from screensync.color.settings import AnalysisSettings, SyncMode
+from refletseher.capture import synthetic as S
+from refletseher.color.colorspace import delta_e, oklab_to_rgb, oklab_to_srgb_u8, rgb_to_oklab, srgb_u8_to_oklab
+from refletseher.color.extractors import AdaptiveClassifier, ColorAnalyzer
+from refletseher.color.frame import LetterboxTracker, compute_features, detect_bars
+from refletseher.color.scene import FlashGuard, SceneCutDetector, signature
+from refletseher.color.settings import AnalysisSettings, SyncMode
 
 RED, GREEN, BLUE, YELLOW = (230, 30, 30), (30, 200, 60), (40, 60, 230), (240, 220, 40)
 

@@ -9,9 +9,9 @@ from pathlib import Path
 
 import pytest
 
-from screensync.i18n import LOCALES_DIR, load_locale, set_language, tr
+from refletseher.i18n import LOCALES_DIR, load_locale, set_language, tr
 
-SRC = Path(__file__).resolve().parents[1] / "src" / "screensync"
+SRC = Path(__file__).resolve().parents[1] / "src" / "refletseher"
 
 
 # ------------------------------------------------------------------ i18n
@@ -45,8 +45,8 @@ def test_all_literal_keys_exist():
 
 
 def test_dynamic_key_families_exist():
-    from screensync.color.settings import SpatialWeighting, SyncMode
-    from screensync.effects import EffectId
+    from refletseher.color.settings import SpatialWeighting, SyncMode
+    from refletseher.effects import EffectId
 
     keys = set(load_locale("tr"))
     need = set()
@@ -73,16 +73,16 @@ def test_translation_fallback_and_format():
 # --------------------------------------------------------------------- GUI
 @pytest.fixture
 def window(qtbot, tmp_path, monkeypatch):
-    monkeypatch.setenv("SCREENSYNC_HOME", str(tmp_path))
-    from screensync.capture.synthetic import SYNTHETIC_MONITOR, SyntheticBackend, moving_scene
-    from screensync.core.controller import AppController
-    from screensync.core.settings import SettingsStore
-    from screensync.device.conflicts import ConflictReport
-    from screensync.device.mock import MockBackend
-    from screensync.profiles.store import ProfileStore
-    from screensync.sync.engine import ScreenSyncEngine
-    from screensync.ui.main_window import MainWindow
-    from screensync.ui.theme import apply_theme
+    monkeypatch.setenv("REFLETSEHER_HOME", str(tmp_path))
+    from refletseher.capture.synthetic import SYNTHETIC_MONITOR, SyntheticBackend, moving_scene
+    from refletseher.core.controller import AppController
+    from refletseher.core.settings import SettingsStore
+    from refletseher.device.conflicts import ConflictReport
+    from refletseher.device.mock import MockBackend
+    from refletseher.profiles.store import ProfileStore
+    from refletseher.sync.engine import ScreenSyncEngine
+    from refletseher.ui.main_window import MainWindow
+    from refletseher.ui.theme import apply_theme
     from PySide6.QtWidgets import QApplication
 
     apply_theme(QApplication.instance(), "dark")
@@ -159,7 +159,7 @@ def test_close_to_tray_and_quit(window, qtbot):
 def test_modern_standby_display_state_events(window):
     import ctypes
 
-    from screensync.ui.main_window import GUID_CONSOLE_DISPLAY_STATE, POWERBROADCAST_SETTING
+    from refletseher.ui.main_window import GUID_CONSOLE_DISPLAY_STATE, POWERBROADCAST_SETTING
 
     calls = []
     window.controller.on_display_off = lambda: calls.append("off")

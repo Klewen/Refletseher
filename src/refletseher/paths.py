@@ -1,20 +1,44 @@
-"""Where ScreenSync RGB keeps its local data (never in the install folder)."""
+"""Where Refletseher keeps its local data (never in the install folder)."""
 
 from __future__ import annotations
 
+import logging
 import os
+import shutil
 import sys
 from pathlib import Path
 
-APP_NAME = "ScreenSyncRGB"
+APP_NAME = "Refletseher"
+#: data folder used before the app was renamed (v1.0.x "ScreenSync RGB")
+LEGACY_APP_NAMES = ("ScreenSync" + "RGB",)
+
+log = logging.getLogger(__name__)
+
+
+def migrate_legacy_data(new: Path, parent: Path) -> bool:
+    """First run after the rename: copy settings/profiles from the old data
+    folder so nothing is lost. The old folder is left untouched."""
+    if new.exists():
+        return False
+    for legacy in LEGACY_APP_NAMES:
+        old = parent / legacy
+        if old.is_dir() and any(old.glob("*.json")):
+            new.mkdir(parents=True, exist_ok=True)
+            for f in old.glob("*.json"):
+                shutil.copy2(f, new / f.name)
+            log.info("Migrated settings and profiles from %s", old)
+            return True
+    return False
 
 
 def data_dir() -> Path:
-    override = os.environ.get("SCREENSYNC_HOME")
+    override = os.environ.get("REFLETSEHER_HOME")
     if override:
         base = Path(override)
     elif sys.platform == "win32":
-        base = Path(os.environ.get("APPDATA") or Path.home() / "AppData" / "Roaming") / APP_NAME
+        parent = Path(os.environ.get("APPDATA") or Path.home() / "AppData" / "Roaming")
+        base = parent / APP_NAME
+        migrate_legacy_data(base, parent)
     else:  # pragma: no cover
         base = Path.home() / ".config" / APP_NAME
     base.mkdir(parents=True, exist_ok=True)
@@ -22,7 +46,7 @@ def data_dir() -> Path:
 
 
 def log_dir() -> Path:
-    override = os.environ.get("SCREENSYNC_HOME")
+    override = os.environ.get("REFLETSEHER_HOME")
     if override:
         p = Path(override) / "logs"
     elif sys.platform == "win32":

@@ -221,7 +221,7 @@ class ProfilesPage(Page):
             self._export([p.id], f"{p.name}.json")
 
     def _export_all(self) -> None:
-        self._export([p.id for p in self.controller.profiles.list()], "ScreenSyncRGB-profiles.json")
+        self._export([p.id for p in self.controller.profiles.list()], "Refletseher-profiles.json")
 
     def _export(self, ids: list[str], default_name: str) -> None:
         path, _ = QFileDialog.getSaveFileName(self, tr("profiles.export"), default_name, "JSON (*.json)")

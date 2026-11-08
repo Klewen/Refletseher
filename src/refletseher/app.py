@@ -1,8 +1,8 @@
 """Application entry point.
 
-    uv run screensync-rgb            # normal start
-    uv run screensync-rgb --tray     # start hidden in the system tray
-    uv run screensync-rgb --simulate # no HID access, simulated keyboard
+    uv run refletseher            # normal start
+    uv run refletseher --tray     # start hidden in the system tray
+    uv run refletseher --simulate # no HID access, simulated keyboard
 """
 
 from __future__ import annotations
@@ -23,17 +23,17 @@ from . import __version__
 from .logging_setup import setup_logging
 from .paths import profiles_file, settings_file
 
-log = logging.getLogger("screensync")
+log = logging.getLogger("refletseher")
 
 
 def parse_args(argv: list[str] | None) -> argparse.Namespace:
-    ap = argparse.ArgumentParser(prog="screensync-rgb", description="ScreenSync RGB")
+    ap = argparse.ArgumentParser(prog="refletseher", description="Refletseher")
     ap.add_argument("--tray", action="store_true", help="start minimised to the system tray")
     ap.add_argument("--simulate", action="store_true", help="do not access the HID device (simulated keyboard)")
     ap.add_argument("--debug", action="store_true", help="verbose logging incl. HID packet trace")
     ap.add_argument("--profile", metavar="ID", help="apply this profile id after start (e.g. preset_cinematic)")
     ap.add_argument("--quit", action="store_true", help="ask a running instance to shut down cleanly")
-    ap.add_argument("--version", action="version", version=f"ScreenSync RGB {__version__}")
+    ap.add_argument("--version", action="version", version=f"Refletseher {__version__}")
     return ap.parse_args(argv)
 
 
@@ -44,7 +44,7 @@ def main(argv: list[str] | None = None) -> int:
 
     settings = SettingsStore(settings_file())
     setup_logging(debug=args.debug or settings.settings.debug_logging)
-    log.info("ScreenSync RGB %s starting (python %s)", __version__, sys.version.split()[0])
+    log.info("Refletseher %s starting (python %s)", __version__, sys.version.split()[0])
 
     from PySide6.QtCore import Qt
     from PySide6.QtGui import QGuiApplication
@@ -53,13 +53,13 @@ def main(argv: list[str] | None = None) -> int:
 
     QGuiApplication.setHighDpiScaleFactorRoundingPolicy(Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
     app = QApplication(sys.argv[:1])
-    app.setApplicationName("ScreenSync RGB")
-    app.setOrganizationName("ScreenSyncRGB")
+    app.setApplicationName("Refletseher")
+    app.setOrganizationName("Refletseher")
     app.setApplicationVersion(__version__)
     app.setQuitOnLastWindowClosed(False)
 
     # ---- single instance: two instances must never drive the HID device
-    server_name = f"ScreenSyncRGB-{getpass.getuser()}"
+    server_name = f"Refletseher-{getpass.getuser()}"
     sock = QLocalSocket()
     sock.connectToServer(server_name)
     if sock.waitForConnected(300):
@@ -75,6 +75,12 @@ def main(argv: list[str] | None = None) -> int:
     QLocalServer.removeServer(server_name)
     server = QLocalServer()
     server.listen(server_name)
+
+    from .core import autostart
+
+    if getattr(sys, "frozen", False):
+        # v1.0.x was "ScreenSync RGB": move its start-with-Windows entry over
+        autostart.migrate_legacy()
 
     from .i18n import set_language
     from .profiles.store import ProfileStore
@@ -127,7 +133,7 @@ def main(argv: list[str] | None = None) -> int:
     code = app.exec()
     window.shutdown()
     server.close()
-    log.info("ScreenSync RGB exited with code %s", code)
+    log.info("Refletseher exited with code %s", code)
     return code
 
 

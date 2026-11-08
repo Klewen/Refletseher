@@ -163,7 +163,7 @@ class MainWindow(QMainWindow):
         self._quitting = False
         self._shutdown_done = False
         self._tray_hint_shown = False
-        self.setWindowTitle("ScreenSync RGB")
+        self.setWindowTitle("Refletseher")
         self.setWindowIcon(app_icon())
         self.setMinimumSize(1120, 720)
 
@@ -185,7 +185,7 @@ class MainWindow(QMainWindow):
         brand.addWidget(logo)
         bcol = QVBoxLayout()
         bcol.setSpacing(0)
-        bcol.addWidget(label("ScreenSync RGB", "BrandTitle"))
+        bcol.addWidget(label("Refletseher", "BrandTitle"))
         bcol.addWidget(label("MSI MS-1565 · 4-Zone", "BrandSub"))
         brand.addLayout(bcol, 1)
         sv.addLayout(brand)
@@ -284,7 +284,7 @@ class MainWindow(QMainWindow):
     # ------------------------------------------------------------- tray
     def _setup_tray(self) -> None:
         self.tray = QSystemTrayIcon(app_icon(), self)
-        self.tray.setToolTip("ScreenSync RGB")
+        self.tray.setToolTip("Refletseher")
         self.tray.activated.connect(self._tray_activated)
         self._tray_state = ""
         self._build_tray_menu()
@@ -326,7 +326,7 @@ class MainWindow(QMainWindow):
             self._tray_state = state
             self.tray.setIcon(app_icon(state))
         dev, _ = device_status(snap.device, snap.simulation_backend)
-        self.tray.setToolTip(f"ScreenSync RGB\n{mode_text(snap)}\n{dev}"[:127])
+        self.tray.setToolTip(f"Refletseher\n{mode_text(snap)}\n{dev}"[:127])
 
     def _tray_activated(self, reason) -> None:
         if reason in (QSystemTrayIcon.ActivationReason.Trigger, QSystemTrayIcon.ActivationReason.DoubleClick):
@@ -351,7 +351,7 @@ class MainWindow(QMainWindow):
             self.hide()
             if not self._tray_hint_shown:
                 self._tray_hint_shown = True
-                self.tray.showMessage("ScreenSync RGB", tr("tray.still_running"), app_icon(), 3500)
+                self.tray.showMessage("Refletseher", tr("tray.still_running"), app_icon(), 3500)
             return
         self._save_geometry()
         e.accept()

@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import numpy as np
 
-from screensync.color.colorspace import delta_e, rgb_to_oklab
-from screensync.color.settings import OutputSettings, TransitionSettings
-from screensync.sync.matching import best_assignment
-from screensync.sync.output import OutputDeadband, finalize, scale_zone_colors
-from screensync.sync.transition import TransitionEngine, tau_for_speed, threshold_for_sensitivity
+from refletseher.color.colorspace import delta_e, rgb_to_oklab
+from refletseher.color.settings import OutputSettings, TransitionSettings
+from refletseher.sync.matching import best_assignment
+from refletseher.sync.output import OutputDeadband, finalize, scale_zone_colors
+from refletseher.sync.transition import TransitionEngine, tau_for_speed, threshold_for_sensitivity
 
 RED, BLUE, GREEN, YELLOW = (255, 0, 0), (0, 0, 255), (0, 255, 0), (255, 255, 0)
 

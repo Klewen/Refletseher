@@ -288,8 +288,8 @@ wheels = [
 ]
 
 [[package]]
-name = "screensync-rgb"
-version = "1.0.1"
+name = "refletseher"
+version = "1.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "dxcam", extra = ["winrt"] },

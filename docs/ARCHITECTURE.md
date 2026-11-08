@@ -28,16 +28,16 @@
 
 | Katman | Paket | Sorumluluk |
 |---|---|---|
-| Device | `screensync.device` | protokol + doğrulama, `DeviceBackend` arayüzü (`HidapiBackend`, `MockBackend`), sürücü, worker, hız sınırlayıcı, MSI Center tespiti |
-| Capture | `screensync.capture` | monitör keşfi (Win32 + DisplayConfig, DPI, HDR), DXGI/WGC (`dxcam`), GDI (`mss`), sentetik kaynak, bölge, ön küçültme |
-| Color engine | `screensync.color` | renk uzayları, letterbox, piksel ağırlıkları, histogram + ağırlıklı k-means, 5 çıkarıcı, sahne kesmesi |
-| Transition | `screensync.sync` | eşleme (Hungarian 4×4), EMA, histerezis, OKLab geçişi, ölü bant, çıkış aşaması, motor iş parçacığı |
-| Effects | `screensync.effects` | 11 efekt, donanım eşlemesi, yazılım renderı, ışık hassasiyeti koruması, runner |
-| Profiles | `screensync.profiles` | model + doğrulama, 12 hazır profil, atomik JSON deposu, içe/dışa aktarma |
-| Automation | `screensync.automation` | kural protokolü (süreç, zamanlama, tam ekran), kenar tetiklemeli servis |
-| Core | `screensync.core` | denetleyici, ayarlar, performans profilleri, Windows başlangıç kaydı |
-| UI | `screensync.ui` | tema/tasarım tokenları, bileşenler, sayfalar, tepsi, olaylar |
-| i18n | `screensync.i18n` | JSON yerelleştirme (tr birincil, en) |
+| Device | `refletseher.device` | protokol + doğrulama, `DeviceBackend` arayüzü (`HidapiBackend`, `MockBackend`), sürücü, worker, hız sınırlayıcı, MSI Center tespiti |
+| Capture | `refletseher.capture` | monitör keşfi (Win32 + DisplayConfig, DPI, HDR), DXGI/WGC (`dxcam`), GDI (`mss`), sentetik kaynak, bölge, ön küçültme |
+| Color engine | `refletseher.color` | renk uzayları, letterbox, piksel ağırlıkları, histogram + ağırlıklı k-means, 5 çıkarıcı, sahne kesmesi |
+| Transition | `refletseher.sync` | eşleme (Hungarian 4×4), EMA, histerezis, OKLab geçişi, ölü bant, çıkış aşaması, motor iş parçacığı |
+| Effects | `refletseher.effects` | 11 efekt, donanım eşlemesi, yazılım renderı, ışık hassasiyeti koruması, runner |
+| Profiles | `refletseher.profiles` | model + doğrulama, 12 hazır profil, atomik JSON deposu, içe/dışa aktarma |
+| Automation | `refletseher.automation` | kural protokolü (süreç, zamanlama, tam ekran), kenar tetiklemeli servis |
+| Core | `refletseher.core` | denetleyici, ayarlar, performans profilleri, Windows başlangıç kaydı |
+| UI | `refletseher.ui` | tema/tasarım tokenları, bileşenler, sayfalar, tepsi, olaylar |
+| i18n | `refletseher.i18n` | JSON yerelleştirme (tr birincil, en) |
 
 ## İş parçacıkları ve veri akışı
 

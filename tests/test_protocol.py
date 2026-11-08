@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import pytest
 
-from screensync.device import protocol as P
-from screensync.device.driver import HardwareEffect, Ms1565Driver
-from screensync.device.mock import MockBackend, MOCK_INFO
-from screensync.device.transport import (
+from refletseher.device import protocol as P
+from refletseher.device.driver import HardwareEffect, Ms1565Driver
+from refletseher.device.mock import MockBackend, MOCK_INFO
+from refletseher.device.transport import (
     AmbiguousDevice,
     DeviceInfo,
     DeviceNotFound,
@@ -169,7 +169,7 @@ def test_driver_groups_equal_colors(mock_backend):
 
 
 def test_driver_short_write_raises(mock_backend):
-    from screensync.device.transport import DeviceIOError
+    from refletseher.device.transport import DeviceIOError
 
     mock_backend.short_write = 10
     drv = Ms1565Driver(mock_backend.open(MOCK_INFO))

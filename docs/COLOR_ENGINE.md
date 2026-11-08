@@ -1,6 +1,6 @@
 # Renk Motoru
 
-Kod: [`src/screensync/color/`](../src/screensync/color/), [`src/screensync/sync/`](../src/screensync/sync/)
+Kod: [`src/refletseher/color/`](../src/refletseher/color/), [`src/refletseher/sync/`](../src/refletseher/sync/)
 
 ## Boru hattı
 

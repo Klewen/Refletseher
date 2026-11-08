@@ -1,6 +1,6 @@
-"""PyInstaller entry point for ScreenSync RGB."""
+"""PyInstaller entry point for Refletseher."""
 
-from screensync.app import main
+from refletseher.app import main
 
 if __name__ == "__main__":
     raise SystemExit(main())

@@ -1,4 +1,4 @@
-# CLAUDE.md — ScreenSync RGB
+# CLAUDE.md — Refletseher
 
 Windows 11 desktop app (Python 3.12 + PySide6) that drives the MSI MysticLight MS-1565 4-zone keyboard
 (VID 0x1462 / PID 0x1601) for screen-synced ambient lighting and manual RGB. UI is Turkish-first.
@@ -6,11 +6,11 @@ Windows 11 desktop app (Python 3.12 + PySide6) that drives the MSI MysticLight M
 ## Commands
 
 - Install / sync: `uv sync` (never `pip install` into system Python; deps are pinned in `uv.lock`)
-- Run: `uv run screensync-rgb` · without hardware: `uv run screensync-rgb --simulate`
+- Run: `uv run refletseher` · without hardware: `uv run refletseher --simulate`
 - Tests: `uv run pytest -q` (no hardware, ~20 s) · hardware opt-in: `uv run pytest tests/hardware --run-hardware`
 - Benchmark: `uv run python scripts/benchmark.py [--animate] [--hardware]`
 - UI screenshots: `uv run python scripts/ui_snapshots.py docs/screenshots`
-- Build exe: `powershell -ExecutionPolicy Bypass -File scripts\build_exe.ps1` → `dist\ScreenSyncRGB\ScreenSyncRGB.exe`
+- Build exe: `powershell -ExecutionPolicy Bypass -File scripts\build_exe.ps1` → `dist\Refletseher\Refletseher.exe`
 - Hardware validation helpers: `uv run python scripts/hw_validate.py {snippet|probe|zones|latency|effects|color HEX}`
 
 ## Hard safety rules (do not relax)
@@ -28,7 +28,7 @@ Windows 11 desktop app (Python 3.12 + PySide6) that drives the MSI MysticLight M
 ## Layout
 
 ```
-src/screensync/
+src/refletseher/
   device/    protocol (builders + validation), transport (HidapiBackend), mock, driver, worker, ratelimit, conflicts
   capture/   base (Region, MonitorInfo, reduce_frame), monitors (Win32/DisplayConfig/HDR), dxcam_backend, gdi_backend, synthetic
   color/     colorspace (OKLab), frame (letterbox, weights), clustering, extractors (5 modes), scene (cuts, flash guard), settings

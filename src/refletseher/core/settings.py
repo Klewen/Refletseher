@@ -1,4 +1,4 @@
-"""Application settings (persisted as JSON in %APPDATA%\\ScreenSyncRGB)."""
+"""Application settings (persisted as JSON in %APPDATA%\\Refletseher)."""
 
 from __future__ import annotations
 

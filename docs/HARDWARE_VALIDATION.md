@@ -62,10 +62,10 @@ uv run python scripts/live_validation.py --seconds 45
 uv run python scripts/cinema_reel.py
 ```
 
-`live_validation.py`'yi uygulama ekran senkronundayken (ör. `ScreenSyncRGB.exe --profile preset_gaming`) çalıştırın ve klavyeyi izleyin.
+`live_validation.py`'yi uygulama ekran senkronundayken (ör. `Refletseher.exe --profile preset_gaming`) çalıştırın ve klavyeyi izleyin.
 
 ## Beklemedeki maddeler için kontrol listesi
 
-- [ ] Bir sonraki oturum açılışında ScreenSync RGB'nin tepside kendiliğinden başladığını kontrol edin (kayıt artık kurulu kopyayı gösteriyor: `%LOCALAPPDATA%\Programs\ScreenSyncRGB`; Ayarlar → "Windows başlangıcında çalıştır" ile kapatılabilir).
+- [ ] Bir sonraki oturum açılışında Refletseher'nin tepside kendiliğinden başladığını kontrol edin (kayıt artık kurulu kopyayı gösteriyor: `%LOCALAPPDATA%\Programs\Refletseher`; Ayarlar → "Windows başlangıcında çalıştır" ile kapatılabilir).
 - [ ] Gerçek bir film/dizi sahnesinde Palet, Sinematik ve Uyarlanabilir modları izleyin.
 - [ ] Harici monitör bağlayıp Ekran listesinden seçin.

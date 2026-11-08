@@ -48,8 +48,16 @@
 ## 2026-11-08 — v1.0.1
 - Yeni logo: "Ufuk ve yansıma" (çerçevesiz, düz renkler; Sanzo Wada paleti: Naples Yellow, Peach Red, Deep Slate Olive, Neutral Gray). Tepsi durumları: normal / senkron (canlı nokta) / kapalı (gri).
 - MIT lisansı ve üçüncü taraf bildirimleri (zip'e de ekleniyor).
-- Sürüm dosya adı sürümsüz: `ScreenSyncRGB-win64.zip` (README'deki "latest" bağlantısı kalıcı).
-- `scripts/install_local.ps1`: kullanıcı başına kurulum (`%LOCALAPPDATA%\Programs\ScreenSyncRGB`), Başlat menüsü + masaüstü kısayolu, başlangıç kaydını kurulu kopyaya yönlendirme.
+- Sürüm dosya adı sürümsüz: `Refletseher-win64.zip` (README'deki "latest" bağlantısı kalıcı).
+- `scripts/install_local.ps1`: kullanıcı başına kurulum (`%LOCALAPPDATA%\Programs\Refletseher`), Başlat menüsü + masaüstü kısayolu, başlangıç kaydını kurulu kopyaya yönlendirme.
+- (v1.0.1 GitHub'da yayınlanmadı; değişiklikler v1.1.0'a dahil edildi.)
+
+## 2026-11-08 — v1.1.0: ScreenSync RGB → Refletseher
+- Yeni ad: *Refletseher* (Fransızca *reflet* "yansıma" + Türkçe *seher* "şafak"). Paket `screensync` → `refletseher`, exe `Refletseher.exe`, komut `refletseher`, ortam değişkenleri `REFLETSEHER_*`.
+- Geçiş: ilk çalıştırmada `%APPDATA%\ScreenSyncRGB` içindeki ayar ve profiller yeni klasöre kopyalanır (eski klasöre dokunulmaz); eski başlangıç kaydı yenisiyle değiştirilir; kurulum betiği eski kurulumu ve kısayolları kaldırır.
+- Logo büyütüldü: işaret ikon alanının ~%94'ünü kaplıyor (önceden ~%55); masaüstü ve tepside diğer uygulamalarla aynı boyutta görünüyor.
+- README'ye eski ad ve arama ifadeleri eklendi (bulunabilirlik).
+- Testler: 160 geçti (veri ve başlangıç kaydı geçiş testleri eklendi).
 
 ### Bekleyen (donanımda doğrulama)
 Bkz. [HARDWARE_VALIDATION.md](HARDWARE_VALIDATION.md): oturum açılışında otomatik başlamanın gözlemi, gerçek film/dizi içeriği,

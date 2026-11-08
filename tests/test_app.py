@@ -8,19 +8,19 @@ import time
 
 import pytest
 
-from screensync.automation import AutomationService, Context, in_time_range, parse_hhmm
-from screensync.capture.synthetic import SYNTHETIC_MONITOR, SyntheticBackend, vertical_bands
-from screensync.core.controller import AppController, Mode
-from screensync.core.settings import AppSettings, AutomationRule, SettingsStore
-from screensync.device import protocol as P
-from screensync.device.conflicts import ConflictReport, classify
-from screensync.device.mock import MockBackend
-from screensync.device.worker import ConnectionState
-from screensync.effects import SPECS, EffectConfig, EffectId, flash_rate, period_seconds, render, to_hardware
-from screensync.profiles.model import LightMode, Profile, ProfileError
-from screensync.profiles.presets import PRESET_IDS
-from screensync.profiles.store import ProfileStore
-from screensync.sync.engine import ScreenSyncEngine, SyncConfig
+from refletseher.automation import AutomationService, Context, in_time_range, parse_hhmm
+from refletseher.capture.synthetic import SYNTHETIC_MONITOR, SyntheticBackend, vertical_bands
+from refletseher.core.controller import AppController, Mode
+from refletseher.core.settings import AppSettings, AutomationRule, SettingsStore
+from refletseher.device import protocol as P
+from refletseher.device.conflicts import ConflictReport, classify
+from refletseher.device.mock import MockBackend
+from refletseher.device.worker import ConnectionState
+from refletseher.effects import SPECS, EffectConfig, EffectId, flash_rate, period_seconds, render, to_hardware
+from refletseher.profiles.model import LightMode, Profile, ProfileError
+from refletseher.profiles.presets import PRESET_IDS
+from refletseher.profiles.store import ProfileStore
+from refletseher.sync.engine import ScreenSyncEngine, SyncConfig
 
 RED, GREEN, BLUE, WHITE = (255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 255)
 
@@ -333,7 +333,7 @@ class _FlakyFactory:
     """dxgi raises the given error ``fails`` times, gdi always works."""
 
     def __init__(self, exc_type, fails: int) -> None:
-        from screensync.capture import synthetic as S
+        from refletseher.capture import synthetic as S
 
         self.exc_type, self.fails = exc_type, fails
         self.opened: list[str] = []
@@ -358,7 +358,7 @@ class _FlakyFactory:
 
 
 def test_transient_access_loss_does_not_fall_back_to_gdi():
-    from screensync.capture import CaptureAccessLost
+    from refletseher.capture import CaptureAccessLost
 
     fac = _FlakyFactory(CaptureAccessLost, fails=1)
     eng = ScreenSyncEngine(lambda c: None, monitors_fn=lambda: [SYNTHETIC_MONITOR], backend_factory=fac)
@@ -371,7 +371,7 @@ def test_transient_access_loss_does_not_fall_back_to_gdi():
 
 
 def test_fallback_backend_is_promoted_back_to_dxgi():
-    from screensync.capture import CaptureError
+    from refletseher.capture import CaptureError
 
     fac = _FlakyFactory(CaptureError, fails=1)
     eng = ScreenSyncEngine(lambda c: None, monitors_fn=lambda: [SYNTHETIC_MONITOR], backend_factory=fac)
@@ -395,3 +395,54 @@ def test_display_off_on_pauses_and_reasserts(app):
     assert wait_for(lambda: app.snapshot().sync.state == "running")
     assert wait_for(lambda: len(app.backend.packets) > before[1])  # colours re-asserted
     assert wait_for(lambda: app.backend.zone_colors()[0] != (0, 0, 0))
+
+
+# ------------------------------------------------------------ rename migration
+def test_legacy_data_folder_is_migrated(tmp_path):
+    from refletseher.paths import LEGACY_APP_NAMES, migrate_legacy_data
+
+    old = tmp_path / LEGACY_APP_NAMES[0]
+    old.mkdir()
+    (old / "settings.json").write_text('{"language": "en"}', "utf-8")
+    (old / "profiles.json").write_text("{}", "utf-8")
+    new = tmp_path / "Refletseher"
+    assert migrate_legacy_data(new, tmp_path)
+    assert (new / "settings.json").read_text("utf-8") == '{"language": "en"}'
+    assert (old / "settings.json").exists()  # old data is left untouched
+    assert not migrate_legacy_data(new, tmp_path)  # only on first run
+
+
+def test_no_migration_without_legacy_data(tmp_path):
+    from refletseher.paths import migrate_legacy_data
+
+    assert not migrate_legacy_data(tmp_path / "Refletseher", tmp_path)
+    assert not (tmp_path / "Refletseher").exists()
+
+
+def test_autostart_replaces_legacy_entry(monkeypatch):
+    import sys as _sys
+    import types
+
+    from refletseher.core import autostart
+
+    store = {autostart.LEGACY_VALUE_NAMES[0]: r'"C:\old\app.exe" --tray'}
+
+    class Key:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *a):
+            return False
+
+    fake = types.SimpleNamespace(
+        HKEY_CURRENT_USER=0, KEY_SET_VALUE=2, REG_SZ=1,
+        OpenKey=lambda *a, **k: Key(),
+        QueryValueEx=lambda key, name: (store[name], 1) if name in store else (_ for _ in ()).throw(FileNotFoundError(name)),
+        SetValueEx=lambda key, name, res, typ, value: store.__setitem__(name, value),
+        DeleteValue=lambda key, name: store.pop(name) if name in store else (_ for _ in ()).throw(FileNotFoundError(name)),
+    )
+    monkeypatch.setitem(_sys.modules, "winreg", fake)
+    monkeypatch.setattr(_sys, "platform", "win32")
+    assert autostart.migrate_legacy()
+    assert autostart.VALUE_NAME in store and autostart.LEGACY_VALUE_NAMES[0] not in store
+    assert not autostart.migrate_legacy()  # nothing left to migrate

@@ -12,10 +12,10 @@ import time
 
 import pytest
 
-from screensync.device import protocol as P
-from screensync.device.driver import HardwareEffect, Ms1565Driver
-from screensync.device.transport import HidapiBackend, select_device
-from screensync.device.worker import DeviceWorker, WorkerConfig
+from refletseher.device import protocol as P
+from refletseher.device.driver import HardwareEffect, Ms1565Driver
+from refletseher.device.transport import HidapiBackend, select_device
+from refletseher.device.worker import DeviceWorker, WorkerConfig
 
 pytestmark = pytest.mark.hardware
 

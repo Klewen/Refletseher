@@ -24,7 +24,7 @@ log = logging.getLogger(__name__)
 PRIORITY = {"process": 100, "fullscreen": 80, "schedule": 50}
 # never treat these as "games" in the fullscreen heuristic
 FULLSCREEN_EXCLUDE = {
-    "explorer.exe", "screensyncrgb.exe", "python.exe", "pythonw.exe", "applicationframehost.exe",
+    "explorer.exe", "refletseherrgb.exe", "python.exe", "pythonw.exe", "applicationframehost.exe",
     "searchhost.exe", "shellexperiencehost.exe", "startmenuexperiencehost.exe", "lockapp.exe",
     "chrome.exe", "msedge.exe", "firefox.exe", "opera.exe", "brave.exe", "vlc.exe", "mpc-hc64.exe",
     "potplayermini64.exe", "wmplayer.exe", "video.ui.exe", "microsoft.media.player.exe",

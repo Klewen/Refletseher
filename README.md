@@ -1,16 +1,23 @@
-<p align="center"><img src="docs/logo.png" alt="ScreenSync RGB logo" width="140"></p>
+<p align="center"><img src="docs/logo.png" alt="Refletseher logo" width="140"></p>
 
-<h1 align="center">ScreenSync RGB</h1>
+<h1 align="center">Refletseher</h1>
 
-**Ambient, screen-synced lighting and full manual RGB control for the MSI Katana 15 HX 4-zone keyboard, without MSI Center.**
+<p align="center"><b>Screen-synced ambient lighting (ambilight) and full RGB control for the MSI Katana 15 HX keyboard, without MSI Center.</b></p>
 
-ScreenSync RGB watches what is on your screen (films, series, games, the desktop) and mirrors its colours onto the four lighting
+Refletseher watches what is on your screen (films, series, games, the desktop) and mirrors its colours onto the four lighting
 zones of your keyboard in real time, with smooth, flicker-free transitions. It also works as a lightweight, independent RGB studio:
 per-zone colours, native keyboard effects, profiles and automation.
 
-[![Download for Windows](https://img.shields.io/badge/Download-Windows%2064--bit-FF3319?style=for-the-badge&logo=windows)](https://github.com/Klewen/ScreenSync-RGB/releases/latest/download/ScreenSyncRGB-win64.zip)
+*Refletseher* joins the French *reflet* (reflection) and the Turkish *seher* (dawn): the light of the screen, reflected.
+It was formerly called **ScreenSync RGB**.
+
+**Use it to:** change the MSI Katana keyboard backlight colour without MSI Center or Mystic Light ·
+sync the keyboard RGB with films and games like an ambilight · set a different colour for each of the 4 keyboard zones ·
+run breathing, wave, rainbow and colour-cycle effects · control the MysticLight MS-1565 controller (USB `1462:1601`) on Windows 11.
+
+[![Download for Windows](https://img.shields.io/badge/Download-Windows%2064--bit-FF3319?style=for-the-badge&logo=windows)](https://github.com/Klewen/Refletseher/releases/latest/download/Refletseher-win64.zip)
 &nbsp;
-[![Latest release](https://img.shields.io/github/v/release/Klewen/ScreenSync-RGB?style=for-the-badge)](https://github.com/Klewen/ScreenSync-RGB/releases/latest)
+[![Latest release](https://img.shields.io/github/v/release/Klewen/Refletseher?style=for-the-badge)](https://github.com/Klewen/Refletseher/releases/latest)
 
 ![Dashboard while screen sync is running](docs/screenshots/dashboard-sync.png)
 
@@ -43,20 +50,20 @@ per-zone colours, native keyboard effects, profiles and automation.
 | OS | Windows 11, 64-bit (tested on Windows 11 Pro 25H2) |
 
 Other MSI laptops that use the same MS-1565 controller may work, but only the Katana 15 HX B14W has been tested.
-The app only ever opens that exact HID device; if it isn't present, ScreenSync RGB tells you and does nothing.
+The app only ever opens that exact HID device; if it isn't present, Refletseher tells you and does nothing.
 
 ## Download and install
 
-1. **[Download `ScreenSyncRGB-win64.zip`](https://github.com/Klewen/ScreenSync-RGB/releases/latest/download/ScreenSyncRGB-win64.zip)** (≈72 MB) from the [Releases](https://github.com/Klewen/ScreenSync-RGB/releases) page.
-2. Extract the zip to a permanent folder, e.g. `C:\Program Files\ScreenSyncRGB` or `C:\Tools\ScreenSyncRGB`.
-   Keep the folder together: `ScreenSyncRGB.exe` needs the `_internal` folder next to it.
-3. Run **`ScreenSyncRGB.exe`**. No installer, no admin rights, no drivers.
+1. **[Download `Refletseher-win64.zip`](https://github.com/Klewen/Refletseher/releases/latest/download/Refletseher-win64.zip)** (≈72 MB) from the [Releases](https://github.com/Klewen/Refletseher/releases) page.
+2. Extract the zip to a permanent folder, e.g. `C:\Program Files\Refletseher` or `C:\Tools\Refletseher`.
+   Keep the folder together: `Refletseher.exe` needs the `_internal` folder next to it.
+3. Run **`Refletseher.exe`**. No installer, no admin rights, no drivers.
 
 > **Windows SmartScreen:** the executable is not code-signed, so on first launch Windows may say *"Windows protected your PC"*.
 > Click **More info → Run anyway**. This is normal for unsigned hobby software. If you prefer, [build it yourself](#building-from-source).
 
 To uninstall, turn off *Start with Windows* in Settings (if you enabled it), delete the folder, and optionally delete
-`%APPDATA%\ScreenSyncRGB` (settings and profiles) and `%LOCALAPPDATA%\ScreenSyncRGB` (logs).
+`%APPDATA%\Refletseher` (settings and profiles) and `%LOCALAPPDATA%\Refletseher` (logs).
 
 ## Getting started
 
@@ -109,20 +116,20 @@ which keeps luminance changes well below the common photosensitivity guideline o
 
 ## Safety and privacy
 
-- **Nothing is ever written to the keyboard's permanent memory.** The controller supports a *save to flash* command (`0xA0`). ScreenSync RGB
+- **Nothing is ever written to the keyboard's permanent memory.** The controller supports a *save to flash* command (`0xA0`). Refletseher
   never sends it, and its driver layer blocks it along with every other non-allow-listed command. Only *select zones* (`0x01`) and
   *set effect* (`0x02`) are sent. Your MSI default lighting comes back after a reboot.
 - Every packet is validated (length, zone mask, colour range) before it is sent. All writes come from a single thread and are rate-limited (≤ 15 updates/s), and identical updates are skipped.
 - No firmware, BIOS or embedded-controller access. No driver changes, no Zadig/libusb. MSI services are never stopped or modified.
 - **Screen content never leaves your PC.** Frames are downscaled to 160×90 in memory for analysis and are never saved or sent anywhere.
-  DRM-protected video shows up black for every capture tool. ScreenSync RGB tells you when that happens and makes no attempt to bypass it.
+  DRM-protected video shows up black for every capture tool. Refletseher tells you when that happens and makes no attempt to bypass it.
 - No network access, no telemetry.
 
 ## MSI Center
 
-MSI Center / Mystic Light can drive the same controller. When ScreenSync RGB detects its lighting services, it shows a warning.
-During testing they did not override ScreenSync RGB, but for the cleanest results turn off or uninstall the *Mystic Light* feature in MSI Center.
-ScreenSync RGB never touches MSI Center itself.
+MSI Center / Mystic Light can drive the same controller. When Refletseher detects its lighting services, it shows a warning.
+During testing they did not override Refletseher, but for the cleanest results turn off or uninstall the *Mystic Light* feature in MSI Center.
+Refletseher never touches MSI Center itself.
 
 ## Troubleshooting
 
@@ -135,7 +142,7 @@ ScreenSync RGB never touches MSI Center itself.
 | Keyboard doesn't follow after sleep | Wait a few seconds after waking. The app re-sends your colours once the display is back on. If it still doesn't follow, press **Resend colours** on *Hardware Status*. |
 | SmartScreen blocks the app | **More info → Run anyway** (unsigned executable). |
 
-Logs: `%LOCALAPPDATA%\ScreenSyncRGB\logs\screensync.log` (also visible under *Settings → Log*).
+Logs: `%LOCALAPPDATA%\Refletseher\logs\refletseher.log` (also visible under *Settings → Log*).
 Command-line options: `--tray` (start hidden), `--simulate` (no hardware access), `--profile <id>`, `--quit`, `--debug`.
 
 ## Performance
@@ -156,16 +163,16 @@ On a static screen there is no analysis and no USB traffic at all. *Eco* and *Re
 Requirements: Windows 11 and [uv](https://docs.astral.sh/uv/) (Python 3.12 is installed by uv).
 
 ```bash
-git clone https://github.com/Klewen/ScreenSync-RGB.git
-cd ScreenSync-RGB
+git clone https://github.com/Klewen/Refletseher.git
+cd Refletseher
 uv sync
-uv run screensync-rgb
+uv run refletseher
 ```
 
 Run without touching the hardware:
 
 ```bash
-uv run screensync-rgb --simulate
+uv run refletseher --simulate
 ```
 
 Tests (no hardware needed):
@@ -180,9 +187,9 @@ Build the Windows executable (runs the tests first):
 powershell -ExecutionPolicy Bypass -File scripts\build_exe.ps1
 ```
 
-Output: `dist\ScreenSyncRGB\ScreenSyncRGB.exe` and `dist\ScreenSyncRGB-win64.zip`.
+Output: `dist\Refletseher\Refletseher.exe` and `dist\Refletseher-win64.zip`.
 
-Install (or update) the build for your user under `%LOCALAPPDATA%\Programs\ScreenSyncRGB`, with Start Menu and Desktop shortcuts:
+Install (or update) the build for your user under `%LOCALAPPDATA%\Programs\Refletseher`, with Start Menu and Desktop shortcuts:
 
 ```bash
 powershell -ExecutionPolicy Bypass -File scripts\install_local.ps1
@@ -195,11 +202,11 @@ Technical documentation (Turkish): [architecture](docs/ARCHITECTURE.md), [HID pr
 
 ## License
 
-ScreenSync RGB is released under the [MIT License](LICENSE) © 2026 altugcakir.
+Refletseher is released under the [MIT License](LICENSE) © 2026 altugcakir.
 The Windows release bundles third-party components under their own licenses (Qt/PySide6 under LGPLv3, OpenCV under Apache-2.0, and others).
 See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
 ## Disclaimer
 
-ScreenSync RGB is an independent project. It is **not affiliated with, endorsed by or supported by MSI**. *MSI*, *Mystic Light*
+Refletseher is an independent project. It is **not affiliated with, endorsed by or supported by MSI**. *MSI*, *Mystic Light*
 and *Katana* are trademarks of Micro-Star International. The app only uses non-persistent lighting commands, but you use it at your own risk.

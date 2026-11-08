@@ -22,10 +22,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from screensync.device import protocol as P  # noqa: E402
-from screensync.device.driver import HardwareEffect, Ms1565Driver  # noqa: E402
-from screensync.device.transport import HidapiBackend, select_device  # noqa: E402
-from screensync.rgb import from_hex, hsv_to_rgb  # noqa: E402
+from refletseher.device import protocol as P  # noqa: E402
+from refletseher.device.driver import HardwareEffect, Ms1565Driver  # noqa: E402
+from refletseher.device.transport import HidapiBackend, select_device  # noqa: E402
+from refletseher.rgb import from_hex, hsv_to_rgb  # noqa: E402
 
 VERIFIED_EFFECT_PAYLOAD = [0x01, 0x58, 0x02, 0x00, 0x00, 0x0F, 0x01, 0x00, 0, 255, 0, 0, 100, 255, 0, 0]
 TEST_COLORS = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (255, 255, 255)]
